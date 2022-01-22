@@ -33,7 +33,39 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
    pip install numpy pyyaml
    ```
 
-5. Test your installation
+5. Download [data files](https://drive.google.com/file/d/1QMT7BjbBqW9iyV5MH0EkhhBivDT8VoKl/view?usp=sharing) of the benchmark problems and expand the archive
+
+   ```bash
+   tar zxvf psgb.tgz
+   ```
+
+   Now, your folder looks as follows.
+
+   ```bash
+   tree -L 1
+   # .
+   # ├── 02
+   # ├── ..
+   # ├── BENCHMARK.md
+   # ├── c01
+   # ├── c02
+   # ├── clean.sh
+   # ├── dat.kgene.rate.csv
+   # ├── ...
+   # ├── exp102.sh
+   # ├── ...
+   # ├── fig
+   # ├── img
+   # ├── LICENSE
+   # ├── process.py
+   # ├── psgb
+   # ├── psgb.tgz
+   # ├── pyshgp
+   # ├── README.md
+   # └── rename_img.sh
+   ```
+
+6. Test your installation
 
    The following command runs PushGP with UMAD to solve the Small or Large
    problem with seed 1000.
