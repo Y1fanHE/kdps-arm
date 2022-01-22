@@ -1,0 +1,366 @@
+Included 32 edge cases.
+Included 168 random cases.
+Included 200 cases in total.
+Finished formatting.
+Included 0 edge cases.
+Included 2000 random cases.
+Included 2000 cases in total.
+Finished formatting.
+========================================
+Setup
+========================================
+Search Configuration:
+signature: ProgramSignature(arity=1, output_stacks=['int'], push_config=PushConfig(numeric_magnitude_limit=1000000000000.0, step_limit=1500, collection_size_cap=1000, runtime_limit=10, growth_cap=500))
+evaluator: <pyshgp.gp.evaluation.DatasetEvaluator object at 0x7f3d10de92b0>
+spawner: <pyshgp.gp.genome.GeneSpawner object at 0x7f3d4fe54e20>
+population_size: 200
+max_generations: 300
+error_threshold: 0.0
+initial_genome_size: (50, 250)
+simplification_steps: 500
+parallel_context: <pyshgp.gp.search.ParallelContext object at 0x7f3d10de9730>
+selection: <pyshgp.utils.DiscreteProbDistrib object at 0x7f3d11e0f3c0>
+variation: <pyshgp.utils.DiscreteProbDistrib object at 0x7f3d11233b40>
+Instructions:
+int_add, int_sub, int_mult, int_div, int_mod, int_min, int_max, int_inc, int_dec, int_lt, int_lte, int_gt, int_gte, int_from_bool, bool_and, bool_or, bool_not, bool_xor, bool_invert_first_then_and, bool_second_first_then_and, bool_from_int, noop, noop_open, exec_do_range, exec_do_count, exec_while, exec_do_while, exec_if, exec_when, vector_int_concat, vector_int_conj, vector_int_take, vector_int_subvec, vector_int_first, vector_int_last, vector_int_nth, vector_int_rest, vector_int_but_last, vector_int_length, vector_int_reverse, vector_int_push_all, vector_int_empty_vector, vector_int_contains, vector_int_index_of, vector_int_occurrences_of, vector_int_set_nth, vector_int_replace, vector_int_replace_first, vector_int_remove, vector_int_iterate, print_bool, println_bool, print_int, println_int, print_vector_int, println_vector_int, print_exec, println_exec, bool_pop, bool_dup, bool_dup_times, bool_swap, bool_rot, bool_flush, bool_eq, bool_stack_depth, bool_yank, bool_yank_dup, bool_shove, bool_shove_dup, bool_is_empty, int_pop, int_dup, int_dup_times, int_swap, int_rot, int_flush, int_eq, int_stack_depth, int_yank, int_yank_dup, int_shove, int_shove_dup, int_is_empty, vector_int_pop, vector_int_dup, vector_int_dup_times, vector_int_swap, vector_int_rot, vector_int_flush, vector_int_eq, vector_int_stack_depth, vector_int_yank, vector_int_yank_dup, vector_int_shove, vector_int_shove_dup, vector_int_is_empty, exec_pop, exec_dup, exec_dup_times, exec_swap, exec_rot, exec_flush, exec_eq, exec_stack_depth, exec_yank, exec_yank_dup, exec_shove, exec_shove_dup, exec_is_empty
+Literals:
+[Literal(value=0, push_type=<pyshgp.push.types.PushIntType object at 0x7f3d4ff91520>), Literal(value=1, push_type=<pyshgp.push.types.PushIntType object at 0x7f3d4ff91520>), Literal(value=2, push_type=<pyshgp.push.types.PushIntType object at 0x7f3d4ff91520>)]
+ERC Generators:
+[<function rand_int at 0x7f3d120629d0>]
+========================================
+Start Run
+========================================
+2021-12-12 20:42:58.492238 | GENERATION: 1 | ERRORS: best=1808.0, median=200000000.0, diversity=0.15 | INDIVIDUALS: n=200, avg_genome_length=169.365
+2021-12-12 20:43:06.598882 | GENERATION: 2 | ERRORS: best=1790.0, median=2054.0, diversity=0.115 | INDIVIDUALS: n=200, avg_genome_length=177.0
+2021-12-12 20:43:16.734118 | GENERATION: 3 | ERRORS: best=1664.0, median=6313.0, diversity=0.235 | INDIVIDUALS: n=200, avg_genome_length=181.865
+2021-12-12 20:43:25.842590 | GENERATION: 4 | ERRORS: best=1596.0, median=2874.5, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=183.77
+2021-12-12 20:43:34.938471 | GENERATION: 5 | ERRORS: best=1778.0, median=2302.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=183.615
+2021-12-12 20:43:43.705477 | GENERATION: 6 | ERRORS: best=1778.0, median=2526.0, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=162.41
+2021-12-12 20:43:58.232746 | GENERATION: 7 | ERRORS: best=1778.0, median=2750.0, diversity=0.45 | INDIVIDUALS: n=200, avg_genome_length=159.685
+2021-12-12 20:44:05.355684 | GENERATION: 8 | ERRORS: best=1514.0, median=2121.0, diversity=0.435 | INDIVIDUALS: n=200, avg_genome_length=159.34
+2021-12-12 20:44:15.958332 | GENERATION: 9 | ERRORS: best=1530.0, median=2315.0, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=169.655
+2021-12-12 20:44:26.568162 | GENERATION: 10 | ERRORS: best=1499.0, median=2280.5, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=163.74
+2021-12-12 20:44:37.020597 | GENERATION: 11 | ERRORS: best=1547.0, median=2307.0, diversity=0.45 | INDIVIDUALS: n=200, avg_genome_length=162.57
+2021-12-12 20:44:47.074350 | GENERATION: 12 | ERRORS: best=1547.0, median=3492.0, diversity=0.5 | INDIVIDUALS: n=200, avg_genome_length=159.585
+2021-12-12 20:44:54.058147 | GENERATION: 13 | ERRORS: best=1367.0, median=2307.0, diversity=0.47 | INDIVIDUALS: n=200, avg_genome_length=159.31
+2021-12-12 20:45:02.806568 | GENERATION: 14 | ERRORS: best=1432.0, median=2307.0, diversity=0.48 | INDIVIDUALS: n=200, avg_genome_length=150.045
+2021-12-12 20:45:13.470583 | GENERATION: 15 | ERRORS: best=1408.0, median=2466.5, diversity=0.515 | INDIVIDUALS: n=200, avg_genome_length=145.465
+2021-12-12 20:45:25.702965 | GENERATION: 16 | ERRORS: best=1365.0, median=2956.0, diversity=0.515 | INDIVIDUALS: n=200, avg_genome_length=137.13
+2021-12-12 20:45:34.856852 | GENERATION: 17 | ERRORS: best=1377.0, median=2688.0, diversity=0.49 | INDIVIDUALS: n=200, avg_genome_length=133.745
+2021-12-12 20:45:43.426072 | GENERATION: 18 | ERRORS: best=1365.0, median=2315.0, diversity=0.575 | INDIVIDUALS: n=200, avg_genome_length=120.845
+2021-12-12 20:45:52.055066 | GENERATION: 19 | ERRORS: best=1364.0, median=2204.0, diversity=0.59 | INDIVIDUALS: n=200, avg_genome_length=107.62
+2021-12-12 20:46:00.650246 | GENERATION: 20 | ERRORS: best=1324.0, median=2065.0, diversity=0.555 | INDIVIDUALS: n=200, avg_genome_length=93.655
+2021-12-12 20:46:07.972347 | GENERATION: 21 | ERRORS: best=1364.0, median=2956.0, diversity=0.5 | INDIVIDUALS: n=200, avg_genome_length=86.95
+2021-12-12 20:46:22.994890 | GENERATION: 22 | ERRORS: best=1364.0, median=2688.0, diversity=0.57 | INDIVIDUALS: n=200, avg_genome_length=87.585
+2021-12-12 20:46:31.667458 | GENERATION: 23 | ERRORS: best=1335.0, median=2315.0, diversity=0.51 | INDIVIDUALS: n=200, avg_genome_length=88.115
+2021-12-12 20:46:43.195451 | GENERATION: 24 | ERRORS: best=1309.0, median=2315.0, diversity=0.58 | INDIVIDUALS: n=200, avg_genome_length=88.27
+2021-12-12 20:46:54.190925 | GENERATION: 25 | ERRORS: best=1343.0, median=2315.0, diversity=0.535 | INDIVIDUALS: n=200, avg_genome_length=77.565
+2021-12-12 20:47:01.962253 | GENERATION: 26 | ERRORS: best=1311.0, median=2204.5, diversity=0.525 | INDIVIDUALS: n=200, avg_genome_length=70.79
+2021-12-12 20:47:10.482983 | GENERATION: 27 | ERRORS: best=1303.0, median=2315.0, diversity=0.485 | INDIVIDUALS: n=200, avg_genome_length=74.565
+2021-12-12 20:47:17.734957 | GENERATION: 28 | ERRORS: best=1296.0, median=2124.0, diversity=0.475 | INDIVIDUALS: n=200, avg_genome_length=69.025
+2021-12-12 20:47:27.368388 | GENERATION: 29 | ERRORS: best=1302.0, median=2308.5, diversity=0.555 | INDIVIDUALS: n=200, avg_genome_length=71.66
+2021-12-12 20:47:39.195420 | GENERATION: 30 | ERRORS: best=1290.0, median=2315.0, diversity=0.475 | INDIVIDUALS: n=200, avg_genome_length=69.155
+2021-12-12 20:47:47.461068 | GENERATION: 31 | ERRORS: best=1304.0, median=2315.0, diversity=0.525 | INDIVIDUALS: n=200, avg_genome_length=63.495
+2021-12-12 20:47:54.155854 | GENERATION: 32 | ERRORS: best=1291.0, median=2315.0, diversity=0.465 | INDIVIDUALS: n=200, avg_genome_length=62.075
+2021-12-12 20:48:03.286065 | GENERATION: 33 | ERRORS: best=1287.0, median=2567.0, diversity=0.5 | INDIVIDUALS: n=200, avg_genome_length=56.175
+2021-12-12 20:48:09.335222 | GENERATION: 34 | ERRORS: best=1304.0, median=2282.5, diversity=0.485 | INDIVIDUALS: n=200, avg_genome_length=51.18
+2021-12-12 20:48:15.562597 | GENERATION: 35 | ERRORS: best=1364.0, median=2315.0, diversity=0.465 | INDIVIDUALS: n=200, avg_genome_length=56.48
+2021-12-12 20:48:21.677525 | GENERATION: 36 | ERRORS: best=1351.0, median=2315.0, diversity=0.46 | INDIVIDUALS: n=200, avg_genome_length=56.13
+2021-12-12 20:48:28.651758 | GENERATION: 37 | ERRORS: best=1364.0, median=2315.0, diversity=0.495 | INDIVIDUALS: n=200, avg_genome_length=62.095
+2021-12-12 20:48:35.459281 | GENERATION: 38 | ERRORS: best=1303.0, median=2251.0, diversity=0.525 | INDIVIDUALS: n=200, avg_genome_length=60.88
+2021-12-12 20:48:43.966523 | GENERATION: 39 | ERRORS: best=1270.0, median=2093.0, diversity=0.54 | INDIVIDUALS: n=200, avg_genome_length=61.445
+2021-12-12 20:48:50.085017 | GENERATION: 40 | ERRORS: best=1320.0, median=2314.5, diversity=0.535 | INDIVIDUALS: n=200, avg_genome_length=66.59
+2021-12-12 20:49:01.827805 | GENERATION: 41 | ERRORS: best=1328.0, median=2054.0, diversity=0.56 | INDIVIDUALS: n=200, avg_genome_length=68.41
+2021-12-12 20:49:08.932723 | GENERATION: 42 | ERRORS: best=1320.0, median=2183.0, diversity=0.555 | INDIVIDUALS: n=200, avg_genome_length=69.815
+2021-12-12 20:49:15.643965 | GENERATION: 43 | ERRORS: best=1303.0, median=2054.0, diversity=0.54 | INDIVIDUALS: n=200, avg_genome_length=74.56
+2021-12-12 20:49:22.073917 | GENERATION: 44 | ERRORS: best=1340.0, median=2054.0, diversity=0.585 | INDIVIDUALS: n=200, avg_genome_length=73.335
+2021-12-12 20:49:28.883885 | GENERATION: 45 | ERRORS: best=1340.0, median=2054.0, diversity=0.5 | INDIVIDUALS: n=200, avg_genome_length=71.665
+2021-12-12 20:49:34.473255 | GENERATION: 46 | ERRORS: best=1340.0, median=2109.0, diversity=0.595 | INDIVIDUALS: n=200, avg_genome_length=77.57
+2021-12-12 20:49:40.789926 | GENERATION: 47 | ERRORS: best=1340.0, median=2231.0, diversity=0.49 | INDIVIDUALS: n=200, avg_genome_length=72.36
+2021-12-12 20:49:48.176975 | GENERATION: 48 | ERRORS: best=1340.0, median=2054.0, diversity=0.615 | INDIVIDUALS: n=200, avg_genome_length=79.93
+2021-12-12 20:49:53.832463 | GENERATION: 49 | ERRORS: best=1335.0, median=2257.0, diversity=0.535 | INDIVIDUALS: n=200, avg_genome_length=75.925
+2021-12-12 20:49:59.478028 | GENERATION: 50 | ERRORS: best=1336.0, median=2200.0, diversity=0.475 | INDIVIDUALS: n=200, avg_genome_length=72.15
+2021-12-12 20:50:05.288906 | GENERATION: 51 | ERRORS: best=1344.0, median=2110.5, diversity=0.565 | INDIVIDUALS: n=200, avg_genome_length=77.615
+2021-12-12 20:50:12.650629 | GENERATION: 52 | ERRORS: best=1357.0, median=2054.0, diversity=0.57 | INDIVIDUALS: n=200, avg_genome_length=85.285
+2021-12-12 20:50:19.098163 | GENERATION: 53 | ERRORS: best=1344.0, median=2054.0, diversity=0.545 | INDIVIDUALS: n=200, avg_genome_length=81.41
+2021-12-12 20:50:26.584510 | GENERATION: 54 | ERRORS: best=1373.0, median=2054.0, diversity=0.475 | INDIVIDUALS: n=200, avg_genome_length=82.67
+2021-12-12 20:50:36.086021 | GENERATION: 55 | ERRORS: best=1373.0, median=2169.0, diversity=0.51 | INDIVIDUALS: n=200, avg_genome_length=82.335
+2021-12-12 20:50:42.980020 | GENERATION: 56 | ERRORS: best=1373.0, median=2054.0, diversity=0.605 | INDIVIDUALS: n=200, avg_genome_length=83.555
+2021-12-12 20:50:50.523433 | GENERATION: 57 | ERRORS: best=1364.0, median=2054.0, diversity=0.585 | INDIVIDUALS: n=200, avg_genome_length=73.505
+2021-12-12 20:50:57.133034 | GENERATION: 58 | ERRORS: best=1364.0, median=2150.0, diversity=0.51 | INDIVIDUALS: n=200, avg_genome_length=73.355
+2021-12-12 20:51:04.350870 | GENERATION: 59 | ERRORS: best=1364.0, median=2054.0, diversity=0.51 | INDIVIDUALS: n=200, avg_genome_length=73.665
+2021-12-12 20:51:12.779282 | GENERATION: 60 | ERRORS: best=1364.0, median=2163.0, diversity=0.6 | INDIVIDUALS: n=200, avg_genome_length=69.405
+2021-12-12 20:51:18.931990 | GENERATION: 61 | ERRORS: best=1365.0, median=2054.0, diversity=0.52 | INDIVIDUALS: n=200, avg_genome_length=72.55
+2021-12-12 20:51:26.476323 | GENERATION: 62 | ERRORS: best=1364.0, median=2054.0, diversity=0.575 | INDIVIDUALS: n=200, avg_genome_length=73.585
+2021-12-12 20:51:32.464384 | GENERATION: 63 | ERRORS: best=1364.0, median=2054.0, diversity=0.56 | INDIVIDUALS: n=200, avg_genome_length=70.285
+2021-12-12 20:51:41.558591 | GENERATION: 64 | ERRORS: best=1364.0, median=2054.0, diversity=0.555 | INDIVIDUALS: n=200, avg_genome_length=66.01
+2021-12-12 20:51:47.843597 | GENERATION: 65 | ERRORS: best=1364.0, median=2054.0, diversity=0.58 | INDIVIDUALS: n=200, avg_genome_length=66.2
+2021-12-12 20:51:55.456395 | GENERATION: 66 | ERRORS: best=1339.0, median=2054.0, diversity=0.58 | INDIVIDUALS: n=200, avg_genome_length=63.96
+2021-12-12 20:52:02.799370 | GENERATION: 67 | ERRORS: best=1365.0, median=2054.0, diversity=0.545 | INDIVIDUALS: n=200, avg_genome_length=64.97
+2021-12-12 20:52:07.982874 | GENERATION: 68 | ERRORS: best=1364.0, median=2080.5, diversity=0.56 | INDIVIDUALS: n=200, avg_genome_length=58.635
+2021-12-12 20:52:14.709711 | GENERATION: 69 | ERRORS: best=1376.0, median=2054.0, diversity=0.55 | INDIVIDUALS: n=200, avg_genome_length=65.545
+2021-12-12 20:52:21.347184 | GENERATION: 70 | ERRORS: best=1408.0, median=2054.0, diversity=0.555 | INDIVIDUALS: n=200, avg_genome_length=68.0
+2021-12-12 20:52:26.391465 | GENERATION: 71 | ERRORS: best=1395.0, median=2054.0, diversity=0.51 | INDIVIDUALS: n=200, avg_genome_length=65.125
+2021-12-12 20:52:32.281637 | GENERATION: 72 | ERRORS: best=1432.0, median=2054.0, diversity=0.515 | INDIVIDUALS: n=200, avg_genome_length=65.36
+2021-12-12 20:52:37.368317 | GENERATION: 73 | ERRORS: best=1376.0, median=2054.0, diversity=0.47 | INDIVIDUALS: n=200, avg_genome_length=62.415
+2021-12-12 20:52:43.357919 | GENERATION: 74 | ERRORS: best=1449.0, median=2054.0, diversity=0.485 | INDIVIDUALS: n=200, avg_genome_length=63.93
+2021-12-12 20:52:49.540765 | GENERATION: 75 | ERRORS: best=1451.0, median=2054.0, diversity=0.49 | INDIVIDUALS: n=200, avg_genome_length=68.415
+2021-12-12 20:52:58.962015 | GENERATION: 76 | ERRORS: best=1343.0, median=2054.0, diversity=0.57 | INDIVIDUALS: n=200, avg_genome_length=68.83
+2021-12-12 20:53:04.866973 | GENERATION: 77 | ERRORS: best=1343.0, median=2054.0, diversity=0.535 | INDIVIDUALS: n=200, avg_genome_length=67.235
+2021-12-12 20:53:11.073263 | GENERATION: 78 | ERRORS: best=1343.0, median=2054.0, diversity=0.525 | INDIVIDUALS: n=200, avg_genome_length=63.11
+2021-12-12 20:53:17.573467 | GENERATION: 79 | ERRORS: best=1466.0, median=2054.0, diversity=0.515 | INDIVIDUALS: n=200, avg_genome_length=57.71
+2021-12-12 20:53:30.855963 | GENERATION: 80 | ERRORS: best=1395.0, median=2054.0, diversity=0.53 | INDIVIDUALS: n=200, avg_genome_length=56.985
+2021-12-12 20:53:40.423484 | GENERATION: 81 | ERRORS: best=1395.0, median=2054.0, diversity=0.52 | INDIVIDUALS: n=200, avg_genome_length=50.42
+2021-12-12 20:53:45.928366 | GENERATION: 82 | ERRORS: best=1403.0, median=2054.0, diversity=0.5 | INDIVIDUALS: n=200, avg_genome_length=50.46
+2021-12-12 20:53:51.185780 | GENERATION: 83 | ERRORS: best=1395.0, median=2054.0, diversity=0.545 | INDIVIDUALS: n=200, avg_genome_length=47.185
+2021-12-12 20:53:56.101632 | GENERATION: 84 | ERRORS: best=1395.0, median=2054.0, diversity=0.54 | INDIVIDUALS: n=200, avg_genome_length=45.915
+2021-12-12 20:54:01.458204 | GENERATION: 85 | ERRORS: best=1395.0, median=2054.0, diversity=0.525 | INDIVIDUALS: n=200, avg_genome_length=44.47
+2021-12-12 20:54:09.359902 | GENERATION: 86 | ERRORS: best=1395.0, median=2054.0, diversity=0.57 | INDIVIDUALS: n=200, avg_genome_length=44.975
+2021-12-12 20:54:13.798654 | GENERATION: 87 | ERRORS: best=1429.0, median=2054.0, diversity=0.57 | INDIVIDUALS: n=200, avg_genome_length=44.19
+2021-12-12 20:54:19.518362 | GENERATION: 88 | ERRORS: best=1373.0, median=2054.0, diversity=0.545 | INDIVIDUALS: n=200, avg_genome_length=43.035
+2021-12-12 20:54:27.318297 | GENERATION: 89 | ERRORS: best=1456.0, median=2054.0, diversity=0.54 | INDIVIDUALS: n=200, avg_genome_length=41.72
+2021-12-12 20:54:33.276069 | GENERATION: 90 | ERRORS: best=1409.0, median=2054.0, diversity=0.64 | INDIVIDUALS: n=200, avg_genome_length=40.95
+2021-12-12 20:54:37.687873 | GENERATION: 91 | ERRORS: best=1415.0, median=2054.0, diversity=0.58 | INDIVIDUALS: n=200, avg_genome_length=37.38
+2021-12-12 20:54:41.771200 | GENERATION: 92 | ERRORS: best=1415.0, median=2054.0, diversity=0.555 | INDIVIDUALS: n=200, avg_genome_length=35.23
+2021-12-12 20:54:44.207225 | GENERATION: 93 | ERRORS: best=1346.0, median=2054.0, diversity=0.53 | INDIVIDUALS: n=200, avg_genome_length=34.89
+2021-12-12 20:54:51.169890 | GENERATION: 94 | ERRORS: best=1396.0, median=2054.0, diversity=0.495 | INDIVIDUALS: n=200, avg_genome_length=36.35
+2021-12-12 20:54:56.354968 | GENERATION: 95 | ERRORS: best=1396.0, median=2054.0, diversity=0.475 | INDIVIDUALS: n=200, avg_genome_length=36.19
+2021-12-12 20:55:02.452191 | GENERATION: 96 | ERRORS: best=1396.0, median=2054.0, diversity=0.55 | INDIVIDUALS: n=200, avg_genome_length=34.35
+2021-12-12 20:55:08.560552 | GENERATION: 97 | ERRORS: best=1344.0, median=2054.0, diversity=0.535 | INDIVIDUALS: n=200, avg_genome_length=35.235
+2021-12-12 20:55:14.792886 | GENERATION: 98 | ERRORS: best=1396.0, median=2054.0, diversity=0.515 | INDIVIDUALS: n=200, avg_genome_length=35.28
+2021-12-12 20:55:21.308880 | GENERATION: 99 | ERRORS: best=1373.0, median=2054.0, diversity=0.5 | INDIVIDUALS: n=200, avg_genome_length=31.92
+2021-12-12 20:55:26.542001 | GENERATION: 100 | ERRORS: best=1398.0, median=2054.0, diversity=0.545 | INDIVIDUALS: n=200, avg_genome_length=34.365
+2021-12-12 20:55:32.539786 | GENERATION: 101 | ERRORS: best=1395.0, median=2054.0, diversity=0.49 | INDIVIDUALS: n=200, avg_genome_length=34.46
+2021-12-12 20:55:37.823187 | GENERATION: 102 | ERRORS: best=1395.0, median=2054.0, diversity=0.505 | INDIVIDUALS: n=200, avg_genome_length=35.43
+2021-12-12 20:55:45.207058 | GENERATION: 103 | ERRORS: best=1395.0, median=2054.0, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=32.01
+2021-12-12 20:55:51.664219 | GENERATION: 104 | ERRORS: best=1395.0, median=2054.0, diversity=0.445 | INDIVIDUALS: n=200, avg_genome_length=31.455
+2021-12-12 20:55:59.449210 | GENERATION: 105 | ERRORS: best=1466.0, median=2054.0, diversity=0.495 | INDIVIDUALS: n=200, avg_genome_length=31.185
+2021-12-12 20:56:05.482051 | GENERATION: 106 | ERRORS: best=1443.0, median=2054.0, diversity=0.445 | INDIVIDUALS: n=200, avg_genome_length=31.265
+2021-12-12 20:56:11.505411 | GENERATION: 107 | ERRORS: best=1408.0, median=2054.0, diversity=0.44 | INDIVIDUALS: n=200, avg_genome_length=30.415
+2021-12-12 20:56:19.592863 | GENERATION: 108 | ERRORS: best=1374.0, median=2054.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=27.3
+2021-12-12 20:56:23.559480 | GENERATION: 109 | ERRORS: best=1433.0, median=2054.0, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=26.52
+2021-12-12 20:56:28.485547 | GENERATION: 110 | ERRORS: best=1433.0, median=2054.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=27.0
+2021-12-12 20:56:33.075357 | GENERATION: 111 | ERRORS: best=1448.0, median=2054.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=26.3
+2021-12-12 20:56:35.460290 | GENERATION: 112 | ERRORS: best=1432.0, median=2054.0, diversity=0.5 | INDIVIDUALS: n=200, avg_genome_length=23.88
+2021-12-12 20:56:40.311395 | GENERATION: 113 | ERRORS: best=1443.0, median=2054.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=21.935
+2021-12-12 20:56:42.453761 | GENERATION: 114 | ERRORS: best=1443.0, median=2054.0, diversity=0.42 | INDIVIDUALS: n=200, avg_genome_length=21.08
+2021-12-12 20:56:47.079102 | GENERATION: 115 | ERRORS: best=1443.0, median=2054.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=19.35
+2021-12-12 20:56:49.923568 | GENERATION: 116 | ERRORS: best=1443.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=19.09
+2021-12-12 20:56:53.691084 | GENERATION: 117 | ERRORS: best=1443.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=18.2
+2021-12-12 20:56:56.876295 | GENERATION: 118 | ERRORS: best=1443.0, median=2054.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=18.28
+2021-12-12 20:57:00.221701 | GENERATION: 119 | ERRORS: best=1443.0, median=2054.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=16.985
+2021-12-12 20:57:04.024829 | GENERATION: 120 | ERRORS: best=1455.0, median=2054.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=15.295
+2021-12-12 20:57:05.224256 | GENERATION: 121 | ERRORS: best=1408.0, median=2054.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=15.85
+2021-12-12 20:57:08.667104 | GENERATION: 122 | ERRORS: best=1397.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=14.785
+2021-12-12 20:57:12.250091 | GENERATION: 123 | ERRORS: best=1408.0, median=2054.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=17.075
+2021-12-12 20:57:16.374845 | GENERATION: 124 | ERRORS: best=1415.0, median=2054.0, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=17.96
+2021-12-12 20:57:18.735051 | GENERATION: 125 | ERRORS: best=1448.0, median=2054.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=18.355
+2021-12-12 20:57:21.375454 | GENERATION: 126 | ERRORS: best=1373.0, median=2054.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=20.04
+2021-12-12 20:57:23.741300 | GENERATION: 127 | ERRORS: best=1373.0, median=2054.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=20.505
+2021-12-12 20:57:26.228336 | GENERATION: 128 | ERRORS: best=1392.0, median=2054.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=19.575
+2021-12-12 20:57:30.420681 | GENERATION: 129 | ERRORS: best=1374.0, median=2054.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=19.15
+2021-12-12 20:57:35.245630 | GENERATION: 130 | ERRORS: best=1423.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=19.505
+2021-12-12 20:57:36.715902 | GENERATION: 131 | ERRORS: best=1436.0, median=2054.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=19.935
+2021-12-12 20:57:39.544886 | GENERATION: 132 | ERRORS: best=1344.0, median=2054.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=19.13
+2021-12-12 20:57:44.437674 | GENERATION: 133 | ERRORS: best=1422.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=19.975
+2021-12-12 20:57:49.970979 | GENERATION: 134 | ERRORS: best=1374.0, median=2054.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=19.235
+2021-12-12 20:57:54.458796 | GENERATION: 135 | ERRORS: best=1424.0, median=2054.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=17.34
+2021-12-12 20:58:02.183336 | GENERATION: 136 | ERRORS: best=1417.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=16.62
+2021-12-12 20:58:06.162635 | GENERATION: 137 | ERRORS: best=1466.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=15.02
+2021-12-12 20:58:09.267840 | GENERATION: 138 | ERRORS: best=1374.0, median=2054.0, diversity=0.29 | INDIVIDUALS: n=200, avg_genome_length=14.03
+2021-12-12 20:58:12.205311 | GENERATION: 139 | ERRORS: best=1392.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=14.36
+2021-12-12 20:58:14.977544 | GENERATION: 140 | ERRORS: best=1392.0, median=2054.0, diversity=0.255 | INDIVIDUALS: n=200, avg_genome_length=14.505
+2021-12-12 20:58:18.072473 | GENERATION: 141 | ERRORS: best=1392.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=14.29
+2021-12-12 20:58:20.718202 | GENERATION: 142 | ERRORS: best=1392.0, median=2054.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=14.605
+2021-12-12 20:58:25.772227 | GENERATION: 143 | ERRORS: best=1374.0, median=2054.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=15.4
+2021-12-12 20:58:30.884524 | GENERATION: 144 | ERRORS: best=1392.0, median=2054.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=14.875
+2021-12-12 20:58:34.265080 | GENERATION: 145 | ERRORS: best=1390.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=16.275
+2021-12-12 20:58:39.223050 | GENERATION: 146 | ERRORS: best=1374.0, median=2054.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=16.11
+2021-12-12 20:58:44.475201 | GENERATION: 147 | ERRORS: best=1433.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=13.025
+2021-12-12 20:58:47.508907 | GENERATION: 148 | ERRORS: best=1383.0, median=2054.0, diversity=0.315 | INDIVIDUALS: n=200, avg_genome_length=14.185
+2021-12-12 20:58:53.566617 | GENERATION: 149 | ERRORS: best=1469.0, median=2054.0, diversity=0.27 | INDIVIDUALS: n=200, avg_genome_length=12.14
+2021-12-12 20:58:56.539173 | GENERATION: 150 | ERRORS: best=1374.0, median=2054.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=12.75
+2021-12-12 20:58:59.558516 | GENERATION: 151 | ERRORS: best=1373.0, median=2054.0, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=13.375
+2021-12-12 20:59:04.364505 | GENERATION: 152 | ERRORS: best=1392.0, median=2054.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=14.61
+2021-12-12 20:59:10.096650 | GENERATION: 153 | ERRORS: best=1434.0, median=2054.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=13.23
+2021-12-12 20:59:14.988638 | GENERATION: 154 | ERRORS: best=1443.0, median=2054.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=13.16
+2021-12-12 20:59:20.151601 | GENERATION: 155 | ERRORS: best=1417.0, median=2054.0, diversity=0.29 | INDIVIDUALS: n=200, avg_genome_length=12.61
+2021-12-12 20:59:25.286974 | GENERATION: 156 | ERRORS: best=1443.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=11.8
+2021-12-12 20:59:29.745966 | GENERATION: 157 | ERRORS: best=1417.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=12.89
+2021-12-12 20:59:32.894879 | GENERATION: 158 | ERRORS: best=1271.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=13.59
+2021-12-12 20:59:35.857713 | GENERATION: 159 | ERRORS: best=1471.0, median=2054.0, diversity=0.27 | INDIVIDUALS: n=200, avg_genome_length=14.415
+2021-12-12 20:59:37.538639 | GENERATION: 160 | ERRORS: best=1466.0, median=2054.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=15.425
+2021-12-12 20:59:41.221429 | GENERATION: 161 | ERRORS: best=1466.0, median=2054.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=16.48
+2021-12-12 20:59:45.816994 | GENERATION: 162 | ERRORS: best=1452.0, median=2054.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=16.89
+2021-12-12 20:59:48.036309 | GENERATION: 163 | ERRORS: best=1452.0, median=2054.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=17.62
+2021-12-12 20:59:52.561689 | GENERATION: 164 | ERRORS: best=1374.0, median=2054.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=17.86
+2021-12-12 20:59:56.175492 | GENERATION: 165 | ERRORS: best=1373.0, median=2054.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=16.575
+2021-12-12 20:59:57.354589 | GENERATION: 166 | ERRORS: best=1370.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=14.66
+2021-12-12 20:59:58.543843 | GENERATION: 167 | ERRORS: best=1392.0, median=2054.0, diversity=0.29 | INDIVIDUALS: n=200, avg_genome_length=15.785
+2021-12-12 21:00:03.140342 | GENERATION: 168 | ERRORS: best=1392.0, median=2315.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=15.745
+2021-12-12 21:00:04.498030 | GENERATION: 169 | ERRORS: best=1452.0, median=2054.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=16.555
+2021-12-12 21:00:07.765169 | GENERATION: 170 | ERRORS: best=1374.0, median=2054.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=16.36
+2021-12-12 21:00:11.237731 | GENERATION: 171 | ERRORS: best=1374.0, median=2054.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=14.945
+2021-12-12 21:00:15.844370 | GENERATION: 172 | ERRORS: best=1374.0, median=2054.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=13.935
+2021-12-12 21:00:17.625871 | GENERATION: 173 | ERRORS: best=1371.0, median=2054.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=13.86
+2021-12-12 21:00:19.298254 | GENERATION: 174 | ERRORS: best=1392.0, median=2054.0, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=14.795
+2021-12-12 21:00:21.302259 | GENERATION: 175 | ERRORS: best=1381.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=13.73
+2021-12-12 21:00:22.855761 | GENERATION: 176 | ERRORS: best=1376.0, median=2054.0, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=15.655
+2021-12-12 21:00:24.576334 | GENERATION: 177 | ERRORS: best=1345.0, median=2054.0, diversity=0.28 | INDIVIDUALS: n=200, avg_genome_length=15.555
+2021-12-12 21:00:28.285751 | GENERATION: 178 | ERRORS: best=1410.0, median=2054.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=15.4
+2021-12-12 21:00:31.943772 | GENERATION: 179 | ERRORS: best=1392.0, median=2054.0, diversity=0.315 | INDIVIDUALS: n=200, avg_genome_length=14.84
+2021-12-12 21:00:34.149632 | GENERATION: 180 | ERRORS: best=1392.0, median=2054.0, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=15.7
+2021-12-12 21:00:38.044933 | GENERATION: 181 | ERRORS: best=1374.0, median=2054.0, diversity=0.27 | INDIVIDUALS: n=200, avg_genome_length=14.285
+2021-12-12 21:00:41.665766 | GENERATION: 182 | ERRORS: best=1374.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=14.92
+2021-12-12 21:00:46.094058 | GENERATION: 183 | ERRORS: best=1392.0, median=2054.0, diversity=0.24 | INDIVIDUALS: n=200, avg_genome_length=14.62
+2021-12-12 21:00:47.237298 | GENERATION: 184 | ERRORS: best=1392.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=13.84
+2021-12-12 21:00:50.898947 | GENERATION: 185 | ERRORS: best=1392.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=12.975
+2021-12-12 21:00:51.937545 | GENERATION: 186 | ERRORS: best=1374.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=11.875
+2021-12-12 21:00:54.370935 | GENERATION: 187 | ERRORS: best=1452.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=11.495
+2021-12-12 21:00:55.670418 | GENERATION: 188 | ERRORS: best=1417.0, median=2054.0, diversity=0.27 | INDIVIDUALS: n=200, avg_genome_length=11.235
+2021-12-12 21:00:57.339177 | GENERATION: 189 | ERRORS: best=1417.0, median=2054.0, diversity=0.285 | INDIVIDUALS: n=200, avg_genome_length=11.48
+2021-12-12 21:01:01.554046 | GENERATION: 190 | ERRORS: best=1428.0, median=2054.0, diversity=0.245 | INDIVIDUALS: n=200, avg_genome_length=10.525
+2021-12-12 21:01:03.619801 | GENERATION: 191 | ERRORS: best=1370.0, median=2054.0, diversity=0.23 | INDIVIDUALS: n=200, avg_genome_length=11.02
+2021-12-12 21:01:04.610877 | GENERATION: 192 | ERRORS: best=1392.0, median=2054.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=11.06
+2021-12-12 21:01:07.035038 | GENERATION: 193 | ERRORS: best=1359.0, median=2054.0, diversity=0.24 | INDIVIDUALS: n=200, avg_genome_length=10.47
+2021-12-12 21:01:11.840942 | GENERATION: 194 | ERRORS: best=1373.0, median=2054.0, diversity=0.265 | INDIVIDUALS: n=200, avg_genome_length=13.66
+2021-12-12 21:01:17.030301 | GENERATION: 195 | ERRORS: best=1373.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=15.33
+2021-12-12 21:01:19.779686 | GENERATION: 196 | ERRORS: best=1376.0, median=2054.0, diversity=0.27 | INDIVIDUALS: n=200, avg_genome_length=14.38
+2021-12-12 21:01:24.195391 | GENERATION: 197 | ERRORS: best=1424.0, median=2054.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=15.09
+2021-12-12 21:01:26.103355 | GENERATION: 198 | ERRORS: best=1395.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=14.59
+2021-12-12 21:01:28.653940 | GENERATION: 199 | ERRORS: best=1411.0, median=2054.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=15.31
+2021-12-12 21:01:29.796470 | GENERATION: 200 | ERRORS: best=1373.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=13.635
+2021-12-12 21:01:32.149784 | GENERATION: 201 | ERRORS: best=1463.0, median=2054.0, diversity=0.29 | INDIVIDUALS: n=200, avg_genome_length=13.055
+2021-12-12 21:01:33.538141 | GENERATION: 202 | ERRORS: best=1418.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=13.18
+2021-12-12 21:01:34.683060 | GENERATION: 203 | ERRORS: best=1418.0, median=2054.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=13.21
+2021-12-12 21:01:38.690094 | GENERATION: 204 | ERRORS: best=1395.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=13.11
+2021-12-12 21:01:43.127471 | GENERATION: 205 | ERRORS: best=1418.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=12.735
+2021-12-12 21:01:45.201446 | GENERATION: 206 | ERRORS: best=1424.0, median=2054.0, diversity=0.28 | INDIVIDUALS: n=200, avg_genome_length=12.99
+2021-12-12 21:01:48.018276 | GENERATION: 207 | ERRORS: best=1452.0, median=2054.0, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=12.95
+2021-12-12 21:01:50.379589 | GENERATION: 208 | ERRORS: best=1452.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=12.82
+2021-12-12 21:01:54.851967 | GENERATION: 209 | ERRORS: best=1435.0, median=2054.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=13.665
+2021-12-12 21:01:57.207119 | GENERATION: 210 | ERRORS: best=1452.0, median=2054.0, diversity=0.36 | INDIVIDUALS: n=200, avg_genome_length=13.74
+2021-12-12 21:02:00.854053 | GENERATION: 211 | ERRORS: best=1372.0, median=2054.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=15.51
+2021-12-12 21:02:03.026880 | GENERATION: 212 | ERRORS: best=1395.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=14.66
+2021-12-12 21:02:04.819077 | GENERATION: 213 | ERRORS: best=1452.0, median=2054.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=14.935
+2021-12-12 21:02:08.200401 | GENERATION: 214 | ERRORS: best=1466.0, median=2054.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=15.255
+2021-12-12 21:02:12.234175 | GENERATION: 215 | ERRORS: best=1429.0, median=2054.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=15.07
+2021-12-12 21:02:18.325221 | GENERATION: 216 | ERRORS: best=1395.0, median=2054.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=15.415
+2021-12-12 21:02:22.278891 | GENERATION: 217 | ERRORS: best=1412.0, median=2054.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=14.535
+2021-12-12 21:02:33.509295 | GENERATION: 218 | ERRORS: best=1395.0, median=2054.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=14.385
+2021-12-12 21:02:35.406469 | GENERATION: 219 | ERRORS: best=1392.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=14.715
+2021-12-12 21:02:39.193665 | GENERATION: 220 | ERRORS: best=1392.0, median=2054.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=13.69
+2021-12-12 21:02:42.513301 | GENERATION: 221 | ERRORS: best=1374.0, median=2054.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=14.12
+2021-12-12 21:02:44.745470 | GENERATION: 222 | ERRORS: best=1374.0, median=2054.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=15.855
+2021-12-12 21:02:52.224226 | GENERATION: 223 | ERRORS: best=1349.0, median=2054.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=15.375
+2021-12-12 21:02:54.505917 | GENERATION: 224 | ERRORS: best=1373.0, median=2054.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=14.155
+2021-12-12 21:02:57.608365 | GENERATION: 225 | ERRORS: best=1373.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=14.39
+2021-12-12 21:02:59.446066 | GENERATION: 226 | ERRORS: best=1392.0, median=2054.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=12.785
+2021-12-12 21:03:04.183708 | GENERATION: 227 | ERRORS: best=1407.0, median=2054.0, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=13.0
+2021-12-12 21:03:05.759217 | GENERATION: 228 | ERRORS: best=1448.0, median=2054.0, diversity=0.265 | INDIVIDUALS: n=200, avg_genome_length=12.335
+2021-12-12 21:03:09.749792 | GENERATION: 229 | ERRORS: best=1432.0, median=2054.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=13.41
+2021-12-12 21:03:11.411256 | GENERATION: 230 | ERRORS: best=1452.0, median=2054.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=12.415
+2021-12-12 21:03:14.473665 | GENERATION: 231 | ERRORS: best=1432.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=12.26
+2021-12-12 21:03:17.997887 | GENERATION: 232 | ERRORS: best=1448.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=11.655
+2021-12-12 21:03:20.974574 | GENERATION: 233 | ERRORS: best=1397.0, median=2054.0, diversity=0.315 | INDIVIDUALS: n=200, avg_genome_length=14.605
+2021-12-12 21:03:22.089728 | GENERATION: 234 | ERRORS: best=1424.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=15.15
+2021-12-12 21:03:26.981032 | GENERATION: 235 | ERRORS: best=1392.0, median=2054.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=15.515
+2021-12-12 21:03:29.269614 | GENERATION: 236 | ERRORS: best=1436.0, median=2054.0, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=15.795
+2021-12-12 21:03:31.009225 | GENERATION: 237 | ERRORS: best=1448.0, median=2054.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=15.165
+2021-12-12 21:03:34.532172 | GENERATION: 238 | ERRORS: best=1366.0, median=2054.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=14.19
+2021-12-12 21:03:36.361176 | GENERATION: 239 | ERRORS: best=1373.0, median=2054.0, diversity=0.36 | INDIVIDUALS: n=200, avg_genome_length=14.5
+2021-12-12 21:03:38.557922 | GENERATION: 240 | ERRORS: best=1461.0, median=2054.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=14.25
+2021-12-12 21:03:42.840281 | GENERATION: 241 | ERRORS: best=1443.0, median=2054.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=14.63
+2021-12-12 21:03:47.733034 | GENERATION: 242 | ERRORS: best=1436.0, median=2054.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=13.48
+2021-12-12 21:03:50.714204 | GENERATION: 243 | ERRORS: best=1436.0, median=2054.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=15.44
+2021-12-12 21:03:53.187421 | GENERATION: 244 | ERRORS: best=1413.0, median=2054.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=15.505
+2021-12-12 21:03:55.880176 | GENERATION: 245 | ERRORS: best=1374.0, median=2054.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=14.62
+2021-12-12 21:03:58.190784 | GENERATION: 246 | ERRORS: best=1448.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=15.55
+2021-12-12 21:03:59.256407 | GENERATION: 247 | ERRORS: best=1448.0, median=2054.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=14.21
+2021-12-12 21:04:04.426908 | GENERATION: 248 | ERRORS: best=1448.0, median=2054.0, diversity=0.28 | INDIVIDUALS: n=200, avg_genome_length=13.82
+2021-12-12 21:04:09.093713 | GENERATION: 249 | ERRORS: best=1466.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=13.84
+2021-12-12 21:04:10.220134 | GENERATION: 250 | ERRORS: best=1443.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=14.215
+2021-12-12 21:04:15.038191 | GENERATION: 251 | ERRORS: best=1443.0, median=2054.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=14.675
+2021-12-12 21:04:16.951086 | GENERATION: 252 | ERRORS: best=1452.0, median=2054.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=14.76
+2021-12-12 21:04:20.953855 | GENERATION: 253 | ERRORS: best=1408.0, median=2054.0, diversity=0.36 | INDIVIDUALS: n=200, avg_genome_length=15.805
+2021-12-12 21:04:25.454570 | GENERATION: 254 | ERRORS: best=1452.0, median=2054.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=16.365
+2021-12-12 21:04:29.554984 | GENERATION: 255 | ERRORS: best=1443.0, median=2054.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=15.57
+2021-12-12 21:04:31.301597 | GENERATION: 256 | ERRORS: best=1424.0, median=2054.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=14.14
+2021-12-12 21:04:32.478132 | GENERATION: 257 | ERRORS: best=1443.0, median=2054.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=14.1
+2021-12-12 21:04:37.774127 | GENERATION: 258 | ERRORS: best=1389.0, median=2054.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=13.905
+2021-12-12 21:04:40.345498 | GENERATION: 259 | ERRORS: best=1296.0, median=2054.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=13.725
+2021-12-12 21:04:41.922395 | GENERATION: 260 | ERRORS: best=1452.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=13.79
+2021-12-12 21:04:44.115288 | GENERATION: 261 | ERRORS: best=1374.0, median=2054.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=13.5
+2021-12-12 21:04:45.625520 | GENERATION: 262 | ERRORS: best=1392.0, median=2054.0, diversity=0.285 | INDIVIDUALS: n=200, avg_genome_length=11.645
+2021-12-12 21:04:46.653461 | GENERATION: 263 | ERRORS: best=1392.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=11.125
+2021-12-12 21:04:52.673760 | GENERATION: 264 | ERRORS: best=1417.0, median=2054.0, diversity=0.245 | INDIVIDUALS: n=200, avg_genome_length=11.195
+2021-12-12 21:04:55.822529 | GENERATION: 265 | ERRORS: best=1417.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=12.96
+2021-12-12 21:04:58.270718 | GENERATION: 266 | ERRORS: best=1417.0, median=2054.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=13.165
+2021-12-12 21:05:01.146143 | GENERATION: 267 | ERRORS: best=1392.0, median=2054.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=15.17
+2021-12-12 21:05:04.746705 | GENERATION: 268 | ERRORS: best=1374.0, median=2054.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=15.825
+2021-12-12 21:05:11.826519 | GENERATION: 269 | ERRORS: best=1392.0, median=2054.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=15.64
+2021-12-12 21:05:16.361593 | GENERATION: 270 | ERRORS: best=1448.0, median=2054.0, diversity=0.285 | INDIVIDUALS: n=200, avg_genome_length=14.31
+2021-12-12 21:05:19.765720 | GENERATION: 271 | ERRORS: best=1459.0, median=2054.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=14.725
+2021-12-12 21:05:22.101059 | GENERATION: 272 | ERRORS: best=1373.0, median=2054.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=13.56
+2021-12-12 21:05:24.403227 | GENERATION: 273 | ERRORS: best=1443.0, median=2054.0, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=14.865
+2021-12-12 21:05:28.594406 | GENERATION: 274 | ERRORS: best=1409.0, median=2054.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=16.375
+2021-12-12 21:05:31.371201 | GENERATION: 275 | ERRORS: best=1448.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=16.125
+2021-12-12 21:05:33.877835 | GENERATION: 276 | ERRORS: best=1392.0, median=2054.0, diversity=0.27 | INDIVIDUALS: n=200, avg_genome_length=15.92
+2021-12-12 21:05:35.733013 | GENERATION: 277 | ERRORS: best=1417.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=16.605
+2021-12-12 21:05:40.321336 | GENERATION: 278 | ERRORS: best=1417.0, median=2054.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=15.26
+2021-12-12 21:05:41.988046 | GENERATION: 279 | ERRORS: best=1417.0, median=2054.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=14.195
+2021-12-12 21:05:46.340756 | GENERATION: 280 | ERRORS: best=1466.0, median=2054.0, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=14.05
+2021-12-12 21:05:50.504300 | GENERATION: 281 | ERRORS: best=1410.0, median=2054.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=14.61
+2021-12-12 21:06:01.649741 | GENERATION: 282 | ERRORS: best=1449.0, median=2054.0, diversity=0.295 | INDIVIDUALS: n=200, avg_genome_length=13.125
+2021-12-12 21:06:06.518135 | GENERATION: 283 | ERRORS: best=1444.0, median=2054.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=12.82
+2021-12-12 21:06:10.911972 | GENERATION: 284 | ERRORS: best=1448.0, median=2054.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=13.675
+2021-12-12 21:06:12.893569 | GENERATION: 285 | ERRORS: best=1429.0, median=2054.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=14.53
+2021-12-12 21:06:14.550999 | GENERATION: 286 | ERRORS: best=1448.0, median=2054.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=13.8
+2021-12-12 21:06:16.325308 | GENERATION: 287 | ERRORS: best=1452.0, median=2054.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=13.16
+2021-12-12 21:06:18.015207 | GENERATION: 288 | ERRORS: best=1452.0, median=2054.0, diversity=0.285 | INDIVIDUALS: n=200, avg_genome_length=13.59
+2021-12-12 21:06:23.739703 | GENERATION: 289 | ERRORS: best=1452.0, median=2054.0, diversity=0.29 | INDIVIDUALS: n=200, avg_genome_length=13.695
+2021-12-12 21:06:24.803348 | GENERATION: 290 | ERRORS: best=1448.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=13.945
+2021-12-12 21:06:26.232690 | GENERATION: 291 | ERRORS: best=1434.0, median=2054.0, diversity=0.285 | INDIVIDUALS: n=200, avg_genome_length=14.72
+2021-12-12 21:06:30.418768 | GENERATION: 292 | ERRORS: best=1448.0, median=2054.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=13.61
+2021-12-12 21:06:32.184094 | GENERATION: 293 | ERRORS: best=1434.0, median=2054.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=14.195
+2021-12-12 21:06:34.053322 | GENERATION: 294 | ERRORS: best=1434.0, median=2054.0, diversity=0.275 | INDIVIDUALS: n=200, avg_genome_length=14.55
+2021-12-12 21:06:37.175031 | GENERATION: 295 | ERRORS: best=1448.0, median=2054.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=15.32
+2021-12-12 21:06:39.061068 | GENERATION: 296 | ERRORS: best=1434.0, median=2054.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=14.205
+2021-12-12 21:06:43.666694 | GENERATION: 297 | ERRORS: best=1433.0, median=2054.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=13.22
+2021-12-12 21:06:44.872094 | GENERATION: 298 | ERRORS: best=1433.0, median=2054.0, diversity=0.23 | INDIVIDUALS: n=200, avg_genome_length=10.79
+2021-12-12 21:06:46.387646 | GENERATION: 299 | ERRORS: best=1433.0, median=2054.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=11.625
+2021-12-12 21:06:47.449185 | GENERATION: 300 | ERRORS: best=1433.0, median=2054.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=12.31
+Simplifying genome of length 19 with total error 1270.0.
+Simplified genome by 1 to length 18.
+Simplified genome by 1 to length 17.
+Simplified genome by 1 to length 16.
+Simplified genome by 1 to length 15.
+Simplified genome to length 15 and total error 1266.0.
+========================================
+End Run
+========================================
+No solution found.
+Best Seen Individual
+	Genome:
+	 pvector([Input(input_index=0), InstructionMeta(name='bool_dup_times', code_blocks=0), InstructionMeta(name='exec_is_empty', code_blocks=0), InstructionMeta(name='exec_dup', code_blocks=1), InstructionMeta(name='vector_int_length', code_blocks=0), InstructionMeta(name='vector_int_first', code_blocks=0), InstructionMeta(name='exec_do_count', code_blocks=1), InstructionMeta(name='exec_do_count', code_blocks=1), InstructionMeta(name='print_bool', code_blocks=0), Closer(), InstructionMeta(name='int_shove_dup', code_blocks=0), InstructionMeta(name='print_bool', code_blocks=0), InstructionMeta(name='vector_int_swap', code_blocks=0), InstructionMeta(name='int_swap', code_blocks=0), InstructionMeta(name='vector_int_swap', code_blocks=0)])
+	Program:
+	 (input_0 bool_dup_times exec_is_empty exec_dup (vector_int_length vector_int_first exec_do_count (exec_do_count (print_bool) int_shove_dup print_bool vector_int_swap int_swap vector_int_swap)))
+	Error vector:
+	 [ 8.  5.  8.  1.  7.  0.  1.  4.  1.  4.  2. 17.  7. 17.  4.  9.  0.  5.
+  7.  1.  8.  7.  8. 27.  3.  0.  6. 17.  2.  3.  3.  1.  6.  0.  4. 11.
+ 17. 17. 16.  2.  1.  1.  3.  7.  1. 15.  2.  2.  1.  1.  8.  1. 17.  1.
+  6.  4.  8. 13.  6.  6. 11.  1.  3.  0.  3. 20.  3.  8. 25.  1.  1.  7.
+  2.  4. 24. 17.  2.  1.  3.  1.  1. 28.  0.  3.  8.  3.  0.  0.  1.  8.
+  0.  7. 11.  1.  1.  3.  3.  9. 17. 17.  0. 10. 29.  0.  8.  1. 15.  3.
+  2.  3. 13.  7.  1. 16.  5.  2.  1.  4.  0. 16.  2. 11.  3.  0.  1.  3.
+  8.  6. 17.  2.  1. 17.  2.  7.  6.  0.  3.  1.  7.  0. 15. 15.  5. 11.
+  0.  5.  7. 19.  8.  1.  2. 10.  8.  3.  4.  0.  4. 17.  1.  3.  0.  8.
+ 15.  7.  7.  4. 14.  4. 16.  3.  2.  1.  1. 14. 21.  5. 13. 17.  5.  9.
+  2.  2.  0. 16.  3.  0.  4.  0.  1. 18.  1. 15.  1.  1. 17.  8.  4.  0.
+  5.  3.]
+	Total error:
+	 1266.0
+	Test error:
+	 16918.0
+	Time:
+	 00:41:20

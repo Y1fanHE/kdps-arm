@@ -1,0 +1,82 @@
+Included 0 edge cases.
+Included 100 random cases.
+Included 100 cases in total.
+Finished formatting.
+Included 0 edge cases.
+Included 1000 random cases.
+Included 1000 cases in total.
+Finished formatting.
+========================================
+Setup
+========================================
+Search Configuration:
+signature: ProgramSignature(push_config=PushConfig(numeric_magnitude_limit=1000000000000.0, collection_size_cap=1000, step_limit=200, runtime_limit=10, growth_cap=500), output_stacks=['stdout'], arity=3)
+evaluator: <pyshgp.gp.evaluation.DatasetEvaluator object at 0x7f268558c4c0>
+spawner: <pyshgp.gp.genome.GeneSpawner object at 0x7f268558ceb0>
+population_size: 200
+max_generations: 300
+error_threshold: 0.0
+initial_genome_size: (20, 100)
+simplification_steps: 500
+parallel_context: <pyshgp.gp.search.ParallelContext object at 0x7f268558c640>
+selection: <pyshgp.utils.DiscreteProbDistrib object at 0x7f267eb60940>
+variation: <pyshgp.utils.DiscreteProbDistrib object at 0x7f267d54af00>
+Instructions:
+int_add, int_sub, int_mult, int_div, int_mod, int_min, int_max, int_inc, int_dec, int_lt, int_lte, int_gt, int_gte, int_from_bool, bool_and, bool_or, bool_not, bool_xor, bool_invert_first_then_and, bool_second_first_then_and, bool_from_int, noop, noop_open, exec_do_range, exec_do_count, exec_while, exec_do_while, exec_if, exec_when, print_bool, println_bool, print_int, println_int, print_exec, println_exec, bool_pop, bool_dup, bool_dup_times, bool_swap, bool_rot, bool_flush, bool_eq, bool_stack_depth, bool_yank, bool_yank_dup, bool_shove, bool_shove_dup, bool_is_empty, int_pop, int_dup, int_dup_times, int_swap, int_rot, int_flush, int_eq, int_stack_depth, int_yank, int_yank_dup, int_shove, int_shove_dup, int_is_empty, exec_pop, exec_dup, exec_dup_times, exec_swap, exec_rot, exec_flush, exec_eq, exec_stack_depth, exec_yank, exec_yank_dup, exec_shove, exec_shove_dup, exec_is_empty
+Literals:
+[]
+ERC Generators:
+[<function rand_int at 0x7f268558fe50>]
+========================================
+Start Run
+========================================
+2021-12-17 04:34:09.525584 | GENERATION: 1 | ERRORS: best=108, median=235.0, diversity=0.105 | INDIVIDUALS: n=200, avg_genome_length=53.19
+2021-12-17 04:34:11.380923 | GENERATION: 2 | ERRORS: best=79, median=233.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=28.25
+2021-12-17 04:34:13.582280 | GENERATION: 3 | ERRORS: best=79, median=209.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=28.32
+2021-12-17 04:34:15.884740 | GENERATION: 4 | ERRORS: best=79, median=108.0, diversity=0.18 | INDIVIDUALS: n=200, avg_genome_length=26.795
+2021-12-17 04:34:18.288102 | GENERATION: 5 | ERRORS: best=79, median=108.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=27.575
+2021-12-17 04:34:20.490657 | GENERATION: 6 | ERRORS: best=79, median=108.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=27.485
+2021-12-17 04:34:22.386545 | GENERATION: 7 | ERRORS: best=79, median=108.0, diversity=0.315 | INDIVIDUALS: n=200, avg_genome_length=25.445
+2021-12-17 04:34:24.261383 | GENERATION: 8 | ERRORS: best=69, median=108.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=25.38
+2021-12-17 04:34:26.078979 | GENERATION: 9 | ERRORS: best=69, median=108.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=28.6
+2021-12-17 04:34:27.890320 | GENERATION: 10 | ERRORS: best=55, median=108.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=30.585
+2021-12-17 04:34:29.730786 | GENERATION: 11 | ERRORS: best=36, median=108.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=36.53
+Simplifying genome of length 43 with total error 0.
+Simplified genome by 3 to length 40.
+Simplified genome by 1 to length 39.
+Simplified genome by 1 to length 38.
+Simplified genome by 3 to length 35.
+Simplified genome by 3 to length 32.
+Simplified genome by 2 to length 30.
+Simplified genome by 3 to length 27.
+Simplified genome by 1 to length 26.
+Simplified genome by 2 to length 24.
+Simplified genome by 1 to length 23.
+Simplified genome by 1 to length 22.
+Simplified genome by 1 to length 21.
+Simplified genome by 1 to length 20.
+Simplified genome by 2 to length 18.
+Simplified genome by 1 to length 17.
+Simplified genome by 3 to length 14.
+Simplified genome by 3 to length 11.
+Simplified genome by 1 to length 10.
+Simplified genome to length 10 and total error 0.
+========================================
+End Run
+========================================
+Solution found.
+Best Seen Individual
+	Genome:
+	 pvector([Input(input_index=0), Input(input_index=1), InstructionMeta(name='int_max', code_blocks=0), Input(input_index=2), InstructionMeta(name='int_min', code_blocks=0), Input(input_index=0), Input(input_index=1), InstructionMeta(name='int_min', code_blocks=0), InstructionMeta(name='int_max', code_blocks=0), InstructionMeta(name='print_int', code_blocks=0)])
+	Program:
+	 (input_0 input_1 int_max input_2 int_min input_0 input_1 int_min int_max print_int)
+	Error vector:
+	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+	Total error:
+	 0
+	Test error:
+	 0
+	Time:
+	 00:00:36

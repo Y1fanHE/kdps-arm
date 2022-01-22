@@ -1,0 +1,356 @@
+Included 27 edge cases.
+Included 73 random cases.
+Included 100 cases in total.
+Finished formatting.
+Included 0 edge cases.
+Included 1000 random cases.
+Included 1000 cases in total.
+Finished formatting.
+========================================
+Setup
+========================================
+Search Configuration:
+signature: ProgramSignature(output_stacks=['stdout'], arity=1, push_config=PushConfig(numeric_magnitude_limit=1000000000000.0, growth_cap=500, runtime_limit=10, step_limit=300, collection_size_cap=1000))
+evaluator: <pyshgp.gp.evaluation.DatasetEvaluator object at 0x7fb5cd202a90>
+spawner: <pyshgp.gp.genome.GeneSpawner object at 0x7fb5cd2026d0>
+population_size: 200
+max_generations: 300
+error_threshold: 0.0
+initial_genome_size: (20, 100)
+simplification_steps: 500
+parallel_context: <pyshgp.gp.search.ParallelContext object at 0x7fb5cd202eb0>
+selection: <pyshgp.utils.DiscreteProbDistrib object at 0x7fb5cd348d40>
+variation: <pyshgp.utils.DiscreteProbDistrib object at 0x7fb5cafeb0c0>
+Instructions:
+int_add, int_sub, int_mult, int_div, int_mod, int_min, int_max, int_inc, int_dec, int_lt, int_lte, int_gt, int_gte, int_from_bool, str_concat, str_insert_str, str_from_first_char, str_from_last_char, str_from_nth_char, str_contains_str, str_index_of_str, str_split_on_str, str_replace_first_str, str_replace_n_str, str_replace_all_str, str_remove_first_str, str_remove_n_str, str_remove_all_str, str_occurrences_of_str, str_reverse, str_head, str_tail, str_rest, str_but_last, str_drop, str_but_last_n, str_length, str_make_empty, str_is_empty_string, str_remove_nth, str_strip_whitespace, str_from_bool, str_from_int, bool_and, bool_or, bool_not, bool_xor, bool_invert_first_then_and, bool_second_first_then_and, bool_from_int, noop, noop_open, exec_do_range, exec_do_count, exec_while, exec_do_while, exec_if, exec_when, print_bool, println_bool, print_int, println_int, print_str, println_str, print_exec, println_exec, bool_pop, bool_dup, bool_dup_times, bool_swap, bool_rot, bool_flush, bool_eq, bool_stack_depth, bool_yank, bool_yank_dup, bool_shove, bool_shove_dup, bool_is_empty, int_pop, int_dup, int_dup_times, int_swap, int_rot, int_flush, int_eq, int_stack_depth, int_yank, int_yank_dup, int_shove, int_shove_dup, int_is_empty, str_pop, str_dup, str_dup_times, str_swap, str_rot, str_flush, str_eq, str_stack_depth, str_yank, str_yank_dup, str_shove, str_shove_dup, str_is_empty, exec_pop, exec_dup, exec_dup_times, exec_swap, exec_rot, exec_flush, exec_eq, exec_stack_depth, exec_yank, exec_yank_dup, exec_shove, exec_shove_dup, exec_is_empty
+Literals:
+[Literal(value='small', push_type=<pyshgp.push.types.PushStrType object at 0x7fb5cd346ac0>), Literal(value='large', push_type=<pyshgp.push.types.PushStrType object at 0x7fb5cd346ac0>)]
+ERC Generators:
+[<function rand_int at 0x7fb5caf44670>]
+========================================
+Start Run
+========================================
+2021-12-20 15:26:20.682463 | GENERATION: 1 | ERRORS: best=250, median=425.0, diversity=0.035 | INDIVIDUALS: n=200, avg_genome_length=52.405 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:22.274042 | GENERATION: 2 | ERRORS: best=250, median=425.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=53.745 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:23.924383 | GENERATION: 3 | ERRORS: best=250, median=425.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=54.89 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:31.821181 | GENERATION: 4 | ERRORS: best=240, median=425.0, diversity=0.245 | INDIVIDUALS: n=200, avg_genome_length=55.13 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:34.215751 | GENERATION: 5 | ERRORS: best=225, median=417.5, diversity=0.27 | INDIVIDUALS: n=200, avg_genome_length=52.675 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:36.910796 | GENERATION: 6 | ERRORS: best=220, median=397.5, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=51.17 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:39.764997 | GENERATION: 7 | ERRORS: best=220, median=325.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=48.985 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:42.469705 | GENERATION: 8 | ERRORS: best=220, median=325.0, diversity=0.235 | INDIVIDUALS: n=200, avg_genome_length=48.77 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:45.396538 | GENERATION: 9 | ERRORS: best=220, median=325.0, diversity=0.28 | INDIVIDUALS: n=200, avg_genome_length=46.4 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:48.019169 | GENERATION: 10 | ERRORS: best=220, median=421.5, diversity=0.225 | INDIVIDUALS: n=200, avg_genome_length=46.775 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:50.690722 | GENERATION: 11 | ERRORS: best=220, median=325.0, diversity=0.225 | INDIVIDUALS: n=200, avg_genome_length=46.39 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:53.320977 | GENERATION: 12 | ERRORS: best=220, median=325.0, diversity=0.225 | INDIVIDUALS: n=200, avg_genome_length=45.5 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:55.862215 | GENERATION: 13 | ERRORS: best=220, median=325.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=45.06 | VIRUSES: gene_rate=0.000
+2021-12-20 15:26:58.429484 | GENERATION: 14 | ERRORS: best=220, median=353.5, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=44.23 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:02.236509 | GENERATION: 15 | ERRORS: best=220, median=325.0, diversity=0.24 | INDIVIDUALS: n=200, avg_genome_length=43.905 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:04.811415 | GENERATION: 16 | ERRORS: best=220, median=380.0, diversity=0.19 | INDIVIDUALS: n=200, avg_genome_length=41.88 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:07.263507 | GENERATION: 17 | ERRORS: best=220, median=325.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=41.23 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:09.728852 | GENERATION: 18 | ERRORS: best=220, median=325.0, diversity=0.185 | INDIVIDUALS: n=200, avg_genome_length=39.975 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:11.919595 | GENERATION: 19 | ERRORS: best=220, median=325.0, diversity=0.155 | INDIVIDUALS: n=200, avg_genome_length=39.735 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:14.116879 | GENERATION: 20 | ERRORS: best=220, median=325.0, diversity=0.175 | INDIVIDUALS: n=200, avg_genome_length=38.91 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:16.357739 | GENERATION: 21 | ERRORS: best=220, median=325.0, diversity=0.195 | INDIVIDUALS: n=200, avg_genome_length=38.805 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:21.039140 | GENERATION: 22 | ERRORS: best=220, median=325.0, diversity=0.2 | INDIVIDUALS: n=200, avg_genome_length=37.85 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:23.760295 | GENERATION: 23 | ERRORS: best=220, median=325.0, diversity=0.17 | INDIVIDUALS: n=200, avg_genome_length=37.02 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:25.806636 | GENERATION: 24 | ERRORS: best=220, median=325.0, diversity=0.21 | INDIVIDUALS: n=200, avg_genome_length=37.97 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:27.592780 | GENERATION: 25 | ERRORS: best=220, median=325.0, diversity=0.195 | INDIVIDUALS: n=200, avg_genome_length=37.79 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:29.514497 | GENERATION: 26 | ERRORS: best=220, median=325.0, diversity=0.2 | INDIVIDUALS: n=200, avg_genome_length=39.135 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:31.350720 | GENERATION: 27 | ERRORS: best=220, median=325.0, diversity=0.16 | INDIVIDUALS: n=200, avg_genome_length=38.81 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:33.114097 | GENERATION: 28 | ERRORS: best=220, median=325.0, diversity=0.195 | INDIVIDUALS: n=200, avg_genome_length=38.9 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:35.016287 | GENERATION: 29 | ERRORS: best=220, median=325.0, diversity=0.21 | INDIVIDUALS: n=200, avg_genome_length=37.45 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:38.864006 | GENERATION: 30 | ERRORS: best=220, median=325.0, diversity=0.225 | INDIVIDUALS: n=200, avg_genome_length=36.005 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:42.825893 | GENERATION: 31 | ERRORS: best=135, median=325.0, diversity=0.155 | INDIVIDUALS: n=200, avg_genome_length=33.445 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:44.720007 | GENERATION: 32 | ERRORS: best=135, median=325.0, diversity=0.235 | INDIVIDUALS: n=200, avg_genome_length=32.365 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:46.387341 | GENERATION: 33 | ERRORS: best=125, median=325.0, diversity=0.205 | INDIVIDUALS: n=200, avg_genome_length=31.0 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:48.508052 | GENERATION: 34 | ERRORS: best=125, median=319.0, diversity=0.235 | INDIVIDUALS: n=200, avg_genome_length=26.98 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:50.609004 | GENERATION: 35 | ERRORS: best=125, median=325.0, diversity=0.265 | INDIVIDUALS: n=200, avg_genome_length=25.64 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:52.599048 | GENERATION: 36 | ERRORS: best=125, median=325.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=24.575 | VIRUSES: gene_rate=0.000
+2021-12-20 15:27:58.131987 | GENERATION: 37 | ERRORS: best=125, median=324.0, diversity=0.245 | INDIVIDUALS: n=200, avg_genome_length=22.97 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:02.195822 | GENERATION: 38 | ERRORS: best=125, median=325.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=23.48 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:04.331607 | GENERATION: 39 | ERRORS: best=125, median=325.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=22.51 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:06.279153 | GENERATION: 40 | ERRORS: best=125, median=325.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=22.465 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:08.441350 | GENERATION: 41 | ERRORS: best=125, median=325.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=22.91 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:10.516841 | GENERATION: 42 | ERRORS: best=125, median=325.0, diversity=0.225 | INDIVIDUALS: n=200, avg_genome_length=23.12 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:12.632933 | GENERATION: 43 | ERRORS: best=125, median=325.0, diversity=0.21 | INDIVIDUALS: n=200, avg_genome_length=24.285 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:14.776541 | GENERATION: 44 | ERRORS: best=125, median=325.0, diversity=0.27 | INDIVIDUALS: n=200, avg_genome_length=23.93 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:16.937886 | GENERATION: 45 | ERRORS: best=125, median=325.0, diversity=0.16 | INDIVIDUALS: n=200, avg_genome_length=23.755 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:18.873362 | GENERATION: 46 | ERRORS: best=125, median=325.0, diversity=0.185 | INDIVIDUALS: n=200, avg_genome_length=23.16 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:21.496930 | GENERATION: 47 | ERRORS: best=120, median=250.0, diversity=0.195 | INDIVIDUALS: n=200, avg_genome_length=22.545 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:23.558560 | GENERATION: 48 | ERRORS: best=120, median=250.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=14.865 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:25.443534 | GENERATION: 49 | ERRORS: best=120, median=325.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=12.085 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:27.377729 | GENERATION: 50 | ERRORS: best=120, median=250.0, diversity=0.175 | INDIVIDUALS: n=200, avg_genome_length=11.99 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:30.797706 | GENERATION: 51 | ERRORS: best=120, median=251.0, diversity=0.205 | INDIVIDUALS: n=200, avg_genome_length=11.43 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:32.563038 | GENERATION: 52 | ERRORS: best=115, median=251.0, diversity=0.2 | INDIVIDUALS: n=200, avg_genome_length=10.79 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:34.640549 | GENERATION: 53 | ERRORS: best=115, median=250.0, diversity=0.17 | INDIVIDUALS: n=200, avg_genome_length=11.225 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:38.123788 | GENERATION: 54 | ERRORS: best=115, median=250.0, diversity=0.185 | INDIVIDUALS: n=200, avg_genome_length=11.82 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:44.391125 | GENERATION: 55 | ERRORS: best=115, median=250.0, diversity=0.205 | INDIVIDUALS: n=200, avg_genome_length=11.115 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:48.439722 | GENERATION: 56 | ERRORS: best=115, median=250.0, diversity=0.195 | INDIVIDUALS: n=200, avg_genome_length=11.765 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:50.328657 | GENERATION: 57 | ERRORS: best=115, median=250.0, diversity=0.205 | INDIVIDUALS: n=200, avg_genome_length=11.52 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:52.219996 | GENERATION: 58 | ERRORS: best=115, median=250.0, diversity=0.14 | INDIVIDUALS: n=200, avg_genome_length=11.75 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:54.165877 | GENERATION: 59 | ERRORS: best=115, median=250.0, diversity=0.18 | INDIVIDUALS: n=200, avg_genome_length=11.69 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:55.987573 | GENERATION: 60 | ERRORS: best=115, median=250.0, diversity=0.165 | INDIVIDUALS: n=200, avg_genome_length=11.45 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:57.805894 | GENERATION: 61 | ERRORS: best=115, median=250.0, diversity=0.18 | INDIVIDUALS: n=200, avg_genome_length=12.065 | VIRUSES: gene_rate=0.000
+2021-12-20 15:28:59.695931 | GENERATION: 62 | ERRORS: best=115, median=250.0, diversity=0.21 | INDIVIDUALS: n=200, avg_genome_length=12.09 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:01.472980 | GENERATION: 63 | ERRORS: best=115, median=250.0, diversity=0.175 | INDIVIDUALS: n=200, avg_genome_length=11.89 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:04.185949 | GENERATION: 64 | ERRORS: best=115, median=250.0, diversity=0.19 | INDIVIDUALS: n=200, avg_genome_length=11.89 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:07.331178 | GENERATION: 65 | ERRORS: best=115, median=250.0, diversity=0.185 | INDIVIDUALS: n=200, avg_genome_length=11.985 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:10.623037 | GENERATION: 66 | ERRORS: best=115, median=250.0, diversity=0.235 | INDIVIDUALS: n=200, avg_genome_length=11.57 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:12.437966 | GENERATION: 67 | ERRORS: best=115, median=325.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=11.405 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:14.241888 | GENERATION: 68 | ERRORS: best=115, median=250.0, diversity=0.21 | INDIVIDUALS: n=200, avg_genome_length=11.86 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:16.126743 | GENERATION: 69 | ERRORS: best=115, median=250.0, diversity=0.2 | INDIVIDUALS: n=200, avg_genome_length=12.35 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:18.115037 | GENERATION: 70 | ERRORS: best=115, median=270.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=12.54 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:19.861925 | GENERATION: 71 | ERRORS: best=115, median=250.0, diversity=0.175 | INDIVIDUALS: n=200, avg_genome_length=11.985 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:21.773345 | GENERATION: 72 | ERRORS: best=115, median=250.0, diversity=0.145 | INDIVIDUALS: n=200, avg_genome_length=11.76 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:24.742253 | GENERATION: 73 | ERRORS: best=115, median=250.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=11.58 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:28.037464 | GENERATION: 74 | ERRORS: best=115, median=250.0, diversity=0.165 | INDIVIDUALS: n=200, avg_genome_length=11.725 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:31.529972 | GENERATION: 75 | ERRORS: best=115, median=250.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=12.155 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:35.004499 | GENERATION: 76 | ERRORS: best=115, median=325.0, diversity=0.19 | INDIVIDUALS: n=200, avg_genome_length=12.095 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:37.196477 | GENERATION: 77 | ERRORS: best=115, median=325.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=11.99 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:40.678494 | GENERATION: 78 | ERRORS: best=115, median=250.0, diversity=0.175 | INDIVIDUALS: n=200, avg_genome_length=11.715 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:44.818913 | GENERATION: 79 | ERRORS: best=115, median=250.0, diversity=0.165 | INDIVIDUALS: n=200, avg_genome_length=11.18 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:46.769664 | GENERATION: 80 | ERRORS: best=115, median=250.0, diversity=0.245 | INDIVIDUALS: n=200, avg_genome_length=11.59 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:48.713548 | GENERATION: 81 | ERRORS: best=115, median=250.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=13.52 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:50.833298 | GENERATION: 82 | ERRORS: best=115, median=255.0, diversity=0.235 | INDIVIDUALS: n=200, avg_genome_length=15.005 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:54.918454 | GENERATION: 83 | ERRORS: best=115, median=250.0, diversity=0.245 | INDIVIDUALS: n=200, avg_genome_length=13.83 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:56.705044 | GENERATION: 84 | ERRORS: best=115, median=250.0, diversity=0.18 | INDIVIDUALS: n=200, avg_genome_length=13.345 | VIRUSES: gene_rate=0.000
+2021-12-20 15:29:58.874498 | GENERATION: 85 | ERRORS: best=115, median=250.0, diversity=0.21 | INDIVIDUALS: n=200, avg_genome_length=12.35 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:02.116131 | GENERATION: 86 | ERRORS: best=115, median=250.0, diversity=0.18 | INDIVIDUALS: n=200, avg_genome_length=13.165 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:07.261473 | GENERATION: 87 | ERRORS: best=115, median=250.0, diversity=0.245 | INDIVIDUALS: n=200, avg_genome_length=14.47 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:12.251743 | GENERATION: 88 | ERRORS: best=115, median=250.0, diversity=0.195 | INDIVIDUALS: n=200, avg_genome_length=13.8 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:14.293681 | GENERATION: 89 | ERRORS: best=115, median=250.0, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=13.91 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:16.415308 | GENERATION: 90 | ERRORS: best=115, median=250.0, diversity=0.29 | INDIVIDUALS: n=200, avg_genome_length=14.635 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:18.376764 | GENERATION: 91 | ERRORS: best=115, median=250.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=15.01 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:20.308583 | GENERATION: 92 | ERRORS: best=115, median=250.0, diversity=0.215 | INDIVIDUALS: n=200, avg_genome_length=14.56 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:22.328910 | GENERATION: 93 | ERRORS: best=105, median=250.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=15.0 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:24.451126 | GENERATION: 94 | ERRORS: best=95, median=250.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=16.115 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:28.659679 | GENERATION: 95 | ERRORS: best=90, median=272.5, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=15.985 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:33.250086 | GENERATION: 96 | ERRORS: best=85, median=250.0, diversity=0.315 | INDIVIDUALS: n=200, avg_genome_length=16.81 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:37.821828 | GENERATION: 97 | ERRORS: best=85, median=318.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=16.955 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:40.251495 | GENERATION: 98 | ERRORS: best=85, median=346.5, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=16.655 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:42.831801 | GENERATION: 99 | ERRORS: best=85, median=345.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=15.89 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:47.378364 | GENERATION: 100 | ERRORS: best=85, median=425.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=15.97 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:49.787535 | GENERATION: 101 | ERRORS: best=85, median=325.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=16.205 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:52.112282 | GENERATION: 102 | ERRORS: best=85, median=325.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=15.525 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:54.556611 | GENERATION: 103 | ERRORS: best=85, median=425.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=16.2 | VIRUSES: gene_rate=0.000
+2021-12-20 15:30:56.888878 | GENERATION: 104 | ERRORS: best=85, median=380.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=16.54 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:00.432961 | GENERATION: 105 | ERRORS: best=95, median=325.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=15.57 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:02.983306 | GENERATION: 106 | ERRORS: best=95, median=325.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=15.25 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:05.438418 | GENERATION: 107 | ERRORS: best=95, median=425.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=15.805 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:07.744212 | GENERATION: 108 | ERRORS: best=95, median=425.0, diversity=0.29 | INDIVIDUALS: n=200, avg_genome_length=16.035 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:09.863099 | GENERATION: 109 | ERRORS: best=95, median=375.5, diversity=0.255 | INDIVIDUALS: n=200, avg_genome_length=16.06 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:13.082734 | GENERATION: 110 | ERRORS: best=95, median=325.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=16.085 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:16.637694 | GENERATION: 111 | ERRORS: best=70, median=425.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=16.67 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:20.142589 | GENERATION: 112 | ERRORS: best=70, median=325.0, diversity=0.285 | INDIVIDUALS: n=200, avg_genome_length=17.995 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:22.994135 | GENERATION: 113 | ERRORS: best=70, median=425.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=18.52 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:25.316817 | GENERATION: 114 | ERRORS: best=60, median=425.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=18.515 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:27.816990 | GENERATION: 115 | ERRORS: best=70, median=344.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=17.95 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:31.157457 | GENERATION: 116 | ERRORS: best=70, median=425.0, diversity=0.28 | INDIVIDUALS: n=200, avg_genome_length=16.85 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:33.794241 | GENERATION: 117 | ERRORS: best=70, median=425.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=17.72 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:37.624592 | GENERATION: 118 | ERRORS: best=70, median=425.0, diversity=0.28 | INDIVIDUALS: n=200, avg_genome_length=17.11 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:40.086669 | GENERATION: 119 | ERRORS: best=70, median=425.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=17.18 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:42.458498 | GENERATION: 120 | ERRORS: best=70, median=425.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=17.105 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:45.163193 | GENERATION: 121 | ERRORS: best=70, median=425.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=16.17 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:47.750770 | GENERATION: 122 | ERRORS: best=70, median=425.0, diversity=0.315 | INDIVIDUALS: n=200, avg_genome_length=16.71 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:50.440774 | GENERATION: 123 | ERRORS: best=75, median=406.5, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=17.43 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:53.137112 | GENERATION: 124 | ERRORS: best=70, median=425.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=17.685 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:56.001546 | GENERATION: 125 | ERRORS: best=70, median=425.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=19.35 | VIRUSES: gene_rate=0.000
+2021-12-20 15:31:58.629985 | GENERATION: 126 | ERRORS: best=70, median=425.0, diversity=0.45 | INDIVIDUALS: n=200, avg_genome_length=19.535 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:01.281011 | GENERATION: 127 | ERRORS: best=70, median=425.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=19.035 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:03.865330 | GENERATION: 128 | ERRORS: best=70, median=425.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=17.91 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:07.095304 | GENERATION: 129 | ERRORS: best=75, median=425.0, diversity=0.36 | INDIVIDUALS: n=200, avg_genome_length=17.53 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:10.682714 | GENERATION: 130 | ERRORS: best=70, median=425.0, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=19.37 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:17.355685 | GENERATION: 131 | ERRORS: best=70, median=425.0, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=19.25 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:20.112182 | GENERATION: 132 | ERRORS: best=70, median=425.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=18.775 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:22.760528 | GENERATION: 133 | ERRORS: best=70, median=425.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=19.58 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:25.410502 | GENERATION: 134 | ERRORS: best=70, median=425.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=18.685 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:28.978212 | GENERATION: 135 | ERRORS: best=70, median=425.0, diversity=0.45 | INDIVIDUALS: n=200, avg_genome_length=18.5 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:31.553130 | GENERATION: 136 | ERRORS: best=70, median=425.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=18.38 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:34.163978 | GENERATION: 137 | ERRORS: best=75, median=425.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=19.095 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:40.927291 | GENERATION: 138 | ERRORS: best=70, median=425.0, diversity=0.46 | INDIVIDUALS: n=200, avg_genome_length=20.695 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:44.171523 | GENERATION: 139 | ERRORS: best=70, median=420.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=21.09 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:46.976161 | GENERATION: 140 | ERRORS: best=70, median=425.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=22.605 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:51.717104 | GENERATION: 141 | ERRORS: best=70, median=425.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=23.085 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:54.859264 | GENERATION: 142 | ERRORS: best=70, median=425.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=22.07 | VIRUSES: gene_rate=0.000
+2021-12-20 15:32:57.732445 | GENERATION: 143 | ERRORS: best=70, median=425.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=21.41 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:00.622700 | GENERATION: 144 | ERRORS: best=70, median=425.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=21.91 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:03.470900 | GENERATION: 145 | ERRORS: best=70, median=425.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=21.04 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:06.402879 | GENERATION: 146 | ERRORS: best=65, median=425.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=20.86 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:09.182041 | GENERATION: 147 | ERRORS: best=60, median=425.0, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=23.315 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:11.851028 | GENERATION: 148 | ERRORS: best=65, median=401.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=26.625 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:15.630008 | GENERATION: 149 | ERRORS: best=65, median=425.0, diversity=0.42 | INDIVIDUALS: n=200, avg_genome_length=28.935 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:20.846308 | GENERATION: 150 | ERRORS: best=65, median=415.0, diversity=0.445 | INDIVIDUALS: n=200, avg_genome_length=28.215 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:24.779727 | GENERATION: 151 | ERRORS: best=65, median=327.5, diversity=0.445 | INDIVIDUALS: n=200, avg_genome_length=28.105 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:27.806958 | GENERATION: 152 | ERRORS: best=65, median=425.0, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=26.525 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:30.751649 | GENERATION: 153 | ERRORS: best=55, median=399.5, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=27.04 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:33.712482 | GENERATION: 154 | ERRORS: best=55, median=425.0, diversity=0.485 | INDIVIDUALS: n=200, avg_genome_length=26.395 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:36.812958 | GENERATION: 155 | ERRORS: best=55, median=415.0, diversity=0.455 | INDIVIDUALS: n=200, avg_genome_length=24.76 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:39.906138 | GENERATION: 156 | ERRORS: best=55, median=425.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=24.315 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:42.946805 | GENERATION: 157 | ERRORS: best=55, median=425.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=24.17 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:45.834679 | GENERATION: 158 | ERRORS: best=65, median=425.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=24.285 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:48.531153 | GENERATION: 159 | ERRORS: best=65, median=425.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=22.94 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:51.161053 | GENERATION: 160 | ERRORS: best=60, median=425.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=26.01 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:54.103237 | GENERATION: 161 | ERRORS: best=60, median=425.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=26.365 | VIRUSES: gene_rate=0.000
+2021-12-20 15:33:59.566842 | GENERATION: 162 | ERRORS: best=60, median=409.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=25.475 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:02.456416 | GENERATION: 163 | ERRORS: best=60, median=425.0, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=24.97 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:06.886163 | GENERATION: 164 | ERRORS: best=60, median=425.0, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=27.82 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:09.579815 | GENERATION: 165 | ERRORS: best=60, median=350.5, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=25.555 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:13.189536 | GENERATION: 166 | ERRORS: best=60, median=425.0, diversity=0.435 | INDIVIDUALS: n=200, avg_genome_length=23.995 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:16.196384 | GENERATION: 167 | ERRORS: best=60, median=425.0, diversity=0.44 | INDIVIDUALS: n=200, avg_genome_length=24.315 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:20.114207 | GENERATION: 168 | ERRORS: best=60, median=425.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=23.01 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:23.343564 | GENERATION: 169 | ERRORS: best=60, median=425.0, diversity=0.42 | INDIVIDUALS: n=200, avg_genome_length=22.25 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:26.693581 | GENERATION: 170 | ERRORS: best=60, median=425.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=21.24 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:30.471999 | GENERATION: 171 | ERRORS: best=60, median=425.0, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=21.215 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:33.438737 | GENERATION: 172 | ERRORS: best=65, median=421.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=23.025 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:36.538356 | GENERATION: 173 | ERRORS: best=60, median=425.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=24.165 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:40.132395 | GENERATION: 174 | ERRORS: best=60, median=425.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=23.095 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:45.600838 | GENERATION: 175 | ERRORS: best=65, median=425.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=23.195 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:50.697157 | GENERATION: 176 | ERRORS: best=65, median=325.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=23.485 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:53.880046 | GENERATION: 177 | ERRORS: best=65, median=425.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=22.365 | VIRUSES: gene_rate=0.000
+2021-12-20 15:34:57.115731 | GENERATION: 178 | ERRORS: best=65, median=425.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=21.785 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:00.276080 | GENERATION: 179 | ERRORS: best=65, median=425.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=21.61 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:03.764060 | GENERATION: 180 | ERRORS: best=65, median=421.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=24.01 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:07.067616 | GENERATION: 181 | ERRORS: best=65, median=413.5, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=25.58 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:12.494498 | GENERATION: 182 | ERRORS: best=65, median=425.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=24.3 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:15.945853 | GENERATION: 183 | ERRORS: best=65, median=425.0, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=23.95 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:19.346199 | GENERATION: 184 | ERRORS: best=65, median=425.0, diversity=0.41 | INDIVIDUALS: n=200, avg_genome_length=23.615 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:23.593740 | GENERATION: 185 | ERRORS: best=65, median=425.0, diversity=0.44 | INDIVIDUALS: n=200, avg_genome_length=23.99 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:26.853025 | GENERATION: 186 | ERRORS: best=65, median=425.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=23.27 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:30.759090 | GENERATION: 187 | ERRORS: best=65, median=425.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=23.5 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:33.737313 | GENERATION: 188 | ERRORS: best=65, median=409.5, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=23.57 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:36.646269 | GENERATION: 189 | ERRORS: best=65, median=325.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=23.6 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:39.491707 | GENERATION: 190 | ERRORS: best=65, median=425.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=22.62 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:44.370780 | GENERATION: 191 | ERRORS: best=65, median=385.5, diversity=0.455 | INDIVIDUALS: n=200, avg_genome_length=23.615 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:47.389552 | GENERATION: 192 | ERRORS: best=65, median=425.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=23.125 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:50.406705 | GENERATION: 193 | ERRORS: best=65, median=417.0, diversity=0.455 | INDIVIDUALS: n=200, avg_genome_length=22.475 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:53.276620 | GENERATION: 194 | ERRORS: best=64, median=425.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=22.85 | VIRUSES: gene_rate=0.000
+2021-12-20 15:35:56.304081 | GENERATION: 195 | ERRORS: best=64, median=372.5, diversity=0.485 | INDIVIDUALS: n=200, avg_genome_length=22.525 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:00.000608 | GENERATION: 196 | ERRORS: best=65, median=425.0, diversity=0.435 | INDIVIDUALS: n=200, avg_genome_length=22.15 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:03.004615 | GENERATION: 197 | ERRORS: best=65, median=415.0, diversity=0.46 | INDIVIDUALS: n=200, avg_genome_length=21.71 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:05.866019 | GENERATION: 198 | ERRORS: best=65, median=325.0, diversity=0.4 | INDIVIDUALS: n=200, avg_genome_length=21.63 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:08.549276 | GENERATION: 199 | ERRORS: best=65, median=330.5, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=20.67 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:11.201604 | GENERATION: 200 | ERRORS: best=65, median=327.5, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=20.085 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:15.612523 | GENERATION: 201 | ERRORS: best=65, median=422.5, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=19.685 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:18.459314 | GENERATION: 202 | ERRORS: best=65, median=425.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=20.235 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:21.142981 | GENERATION: 203 | ERRORS: best=65, median=425.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=18.77 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:23.940466 | GENERATION: 204 | ERRORS: best=65, median=425.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=19.22 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:29.963507 | GENERATION: 205 | ERRORS: best=65, median=320.0, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=19.975 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:34.134206 | GENERATION: 206 | ERRORS: best=65, median=425.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=21.315 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:37.025826 | GENERATION: 207 | ERRORS: best=65, median=425.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=20.985 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:41.711849 | GENERATION: 208 | ERRORS: best=65, median=425.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=21.07 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:45.549356 | GENERATION: 209 | ERRORS: best=65, median=424.5, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=19.775 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:49.206267 | GENERATION: 210 | ERRORS: best=65, median=425.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=22.06 | VIRUSES: gene_rate=0.000
+2021-12-20 15:36:54.654288 | GENERATION: 211 | ERRORS: best=60, median=312.5, diversity=0.41 | INDIVIDUALS: n=200, avg_genome_length=21.395 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:00.399762 | GENERATION: 212 | ERRORS: best=65, median=420.0, diversity=0.36 | INDIVIDUALS: n=200, avg_genome_length=19.615 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:03.268364 | GENERATION: 213 | ERRORS: best=65, median=425.0, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=20.83 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:08.064946 | GENERATION: 214 | ERRORS: best=65, median=422.5, diversity=0.485 | INDIVIDUALS: n=200, avg_genome_length=23.65 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:11.296508 | GENERATION: 215 | ERRORS: best=65, median=422.5, diversity=0.41 | INDIVIDUALS: n=200, avg_genome_length=23.78 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:14.189757 | GENERATION: 216 | ERRORS: best=65, median=425.0, diversity=0.435 | INDIVIDUALS: n=200, avg_genome_length=23.985 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:17.092904 | GENERATION: 217 | ERRORS: best=65, median=423.5, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=22.84 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:19.850570 | GENERATION: 218 | ERRORS: best=65, median=377.5, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=21.71 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:22.646826 | GENERATION: 219 | ERRORS: best=65, median=415.0, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=22.765 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:26.968419 | GENERATION: 220 | ERRORS: best=65, median=420.0, diversity=0.47 | INDIVIDUALS: n=200, avg_genome_length=22.375 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:29.895195 | GENERATION: 221 | ERRORS: best=65, median=425.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=22.055 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:32.809918 | GENERATION: 222 | ERRORS: best=65, median=404.0, diversity=0.445 | INDIVIDUALS: n=200, avg_genome_length=22.76 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:35.831476 | GENERATION: 223 | ERRORS: best=65, median=357.0, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=23.365 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:38.834493 | GENERATION: 224 | ERRORS: best=70, median=363.5, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=24.465 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:43.449969 | GENERATION: 225 | ERRORS: best=70, median=425.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=25.075 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:48.972027 | GENERATION: 226 | ERRORS: best=70, median=425.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=24.975 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:51.642891 | GENERATION: 227 | ERRORS: best=70, median=387.5, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=22.485 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:54.281574 | GENERATION: 228 | ERRORS: best=70, median=325.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=21.865 | VIRUSES: gene_rate=0.000
+2021-12-20 15:37:58.555756 | GENERATION: 229 | ERRORS: best=70, median=425.0, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=21.175 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:01.343659 | GENERATION: 230 | ERRORS: best=70, median=425.0, diversity=0.445 | INDIVIDUALS: n=200, avg_genome_length=21.055 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:03.973201 | GENERATION: 231 | ERRORS: best=65, median=325.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=19.98 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:06.721639 | GENERATION: 232 | ERRORS: best=65, median=403.5, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=19.805 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:09.592598 | GENERATION: 233 | ERRORS: best=65, median=325.0, diversity=0.41 | INDIVIDUALS: n=200, avg_genome_length=19.27 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:12.532200 | GENERATION: 234 | ERRORS: best=55, median=420.0, diversity=0.41 | INDIVIDUALS: n=200, avg_genome_length=20.235 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:15.469069 | GENERATION: 235 | ERRORS: best=55, median=378.5, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=20.675 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:18.345264 | GENERATION: 236 | ERRORS: best=55, median=422.5, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=20.965 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:21.287966 | GENERATION: 237 | ERRORS: best=55, median=425.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=22.125 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:23.968729 | GENERATION: 238 | ERRORS: best=55, median=325.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=21.835 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:27.266164 | GENERATION: 239 | ERRORS: best=55, median=409.5, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=22.67 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:32.555723 | GENERATION: 240 | ERRORS: best=55, median=330.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=21.56 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:35.395798 | GENERATION: 241 | ERRORS: best=55, median=420.0, diversity=0.42 | INDIVIDUALS: n=200, avg_genome_length=22.715 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:38.153703 | GENERATION: 242 | ERRORS: best=55, median=425.0, diversity=0.43 | INDIVIDUALS: n=200, avg_genome_length=19.71 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:40.891176 | GENERATION: 243 | ERRORS: best=55, median=422.5, diversity=0.37 | INDIVIDUALS: n=200, avg_genome_length=19.795 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:43.642384 | GENERATION: 244 | ERRORS: best=55, median=325.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=19.05 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:46.517722 | GENERATION: 245 | ERRORS: best=55, median=425.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=19.835 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:49.221043 | GENERATION: 246 | ERRORS: best=55, median=312.5, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=19.945 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:51.983283 | GENERATION: 247 | ERRORS: best=50, median=325.0, diversity=0.335 | INDIVIDUALS: n=200, avg_genome_length=19.925 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:54.623263 | GENERATION: 248 | ERRORS: best=50, median=325.0, diversity=0.38 | INDIVIDUALS: n=200, avg_genome_length=18.915 | VIRUSES: gene_rate=0.000
+2021-12-20 15:38:57.194120 | GENERATION: 249 | ERRORS: best=50, median=300.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=18.79 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:01.416778 | GENERATION: 250 | ERRORS: best=50, median=425.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=17.98 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:04.269218 | GENERATION: 251 | ERRORS: best=50, median=325.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=17.555 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:07.387095 | GENERATION: 252 | ERRORS: best=50, median=325.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=17.27 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:10.957645 | GENERATION: 253 | ERRORS: best=75, median=425.0, diversity=0.31 | INDIVIDUALS: n=200, avg_genome_length=18.155 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:14.767709 | GENERATION: 254 | ERRORS: best=70, median=401.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=18.45 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:20.751167 | GENERATION: 255 | ERRORS: best=65, median=425.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=19.135 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:24.704354 | GENERATION: 256 | ERRORS: best=65, median=325.0, diversity=0.34 | INDIVIDUALS: n=200, avg_genome_length=18.32 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:28.526535 | GENERATION: 257 | ERRORS: best=70, median=381.5, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=18.31 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:32.298213 | GENERATION: 258 | ERRORS: best=70, median=325.0, diversity=0.425 | INDIVIDUALS: n=200, avg_genome_length=20.295 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:35.640236 | GENERATION: 259 | ERRORS: best=70, median=325.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=19.83 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:41.874862 | GENERATION: 260 | ERRORS: best=70, median=395.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=20.73 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:44.937499 | GENERATION: 261 | ERRORS: best=70, median=419.5, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=20.36 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:47.883789 | GENERATION: 262 | ERRORS: best=65, median=325.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=19.435 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:50.675590 | GENERATION: 263 | ERRORS: best=65, median=425.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=17.745 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:53.439579 | GENERATION: 264 | ERRORS: best=70, median=425.0, diversity=0.485 | INDIVIDUALS: n=200, avg_genome_length=17.47 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:56.252582 | GENERATION: 265 | ERRORS: best=70, median=351.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=17.565 | VIRUSES: gene_rate=0.000
+2021-12-20 15:39:59.134597 | GENERATION: 266 | ERRORS: best=70, median=419.0, diversity=0.41 | INDIVIDUALS: n=200, avg_genome_length=17.345 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:02.116365 | GENERATION: 267 | ERRORS: best=70, median=325.0, diversity=0.385 | INDIVIDUALS: n=200, avg_genome_length=16.325 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:04.897156 | GENERATION: 268 | ERRORS: best=70, median=425.0, diversity=0.46 | INDIVIDUALS: n=200, avg_genome_length=15.995 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:08.221322 | GENERATION: 269 | ERRORS: best=70, median=425.0, diversity=0.52 | INDIVIDUALS: n=200, avg_genome_length=16.435 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:10.936987 | GENERATION: 270 | ERRORS: best=65, median=325.0, diversity=0.42 | INDIVIDUALS: n=200, avg_genome_length=16.105 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:13.852563 | GENERATION: 271 | ERRORS: best=65, median=425.0, diversity=0.49 | INDIVIDUALS: n=200, avg_genome_length=15.72 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:16.459871 | GENERATION: 272 | ERRORS: best=65, median=421.0, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=15.97 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:19.106027 | GENERATION: 273 | ERRORS: best=75, median=425.0, diversity=0.375 | INDIVIDUALS: n=200, avg_genome_length=15.705 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:22.126907 | GENERATION: 274 | ERRORS: best=75, median=425.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=15.57 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:24.463647 | GENERATION: 275 | ERRORS: best=75, median=425.0, diversity=0.475 | INDIVIDUALS: n=200, avg_genome_length=16.775 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:26.999248 | GENERATION: 276 | ERRORS: best=80, median=387.0, diversity=0.49 | INDIVIDUALS: n=200, avg_genome_length=17.61 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:31.496724 | GENERATION: 277 | ERRORS: best=75, median=417.5, diversity=0.33 | INDIVIDUALS: n=200, avg_genome_length=16.165 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:33.902535 | GENERATION: 278 | ERRORS: best=60, median=360.0, diversity=0.395 | INDIVIDUALS: n=200, avg_genome_length=15.705 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:36.447947 | GENERATION: 279 | ERRORS: best=60, median=325.0, diversity=0.415 | INDIVIDUALS: n=200, avg_genome_length=15.735 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:38.949387 | GENERATION: 280 | ERRORS: best=60, median=325.0, diversity=0.405 | INDIVIDUALS: n=200, avg_genome_length=16.335 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:43.004443 | GENERATION: 281 | ERRORS: best=60, median=425.0, diversity=0.39 | INDIVIDUALS: n=200, avg_genome_length=15.99 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:45.398654 | GENERATION: 282 | ERRORS: best=60, median=325.0, diversity=0.365 | INDIVIDUALS: n=200, avg_genome_length=14.735 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:47.807013 | GENERATION: 283 | ERRORS: best=60, median=425.0, diversity=0.46 | INDIVIDUALS: n=200, avg_genome_length=14.67 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:50.360691 | GENERATION: 284 | ERRORS: best=55, median=415.0, diversity=0.345 | INDIVIDUALS: n=200, avg_genome_length=14.99 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:52.796800 | GENERATION: 285 | ERRORS: best=55, median=325.0, diversity=0.355 | INDIVIDUALS: n=200, avg_genome_length=14.715 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:55.139876 | GENERATION: 286 | ERRORS: best=80, median=325.0, diversity=0.305 | INDIVIDUALS: n=200, avg_genome_length=14.62 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:57.443248 | GENERATION: 287 | ERRORS: best=80, median=390.0, diversity=0.25 | INDIVIDUALS: n=200, avg_genome_length=13.855 | VIRUSES: gene_rate=0.000
+2021-12-20 15:40:59.733071 | GENERATION: 288 | ERRORS: best=80, median=425.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=14.4 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:03.372945 | GENERATION: 289 | ERRORS: best=85, median=425.0, diversity=0.315 | INDIVIDUALS: n=200, avg_genome_length=14.69 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:05.657509 | GENERATION: 290 | ERRORS: best=80, median=425.0, diversity=0.265 | INDIVIDUALS: n=200, avg_genome_length=14.465 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:07.901807 | GENERATION: 291 | ERRORS: best=85, median=340.0, diversity=0.32 | INDIVIDUALS: n=200, avg_genome_length=14.075 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:10.148012 | GENERATION: 292 | ERRORS: best=85, median=405.0, diversity=0.35 | INDIVIDUALS: n=200, avg_genome_length=14.365 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:12.536883 | GENERATION: 293 | ERRORS: best=80, median=325.0, diversity=0.3 | INDIVIDUALS: n=200, avg_genome_length=14.985 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:14.919788 | GENERATION: 294 | ERRORS: best=85, median=425.0, diversity=0.315 | INDIVIDUALS: n=200, avg_genome_length=14.735 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:17.268937 | GENERATION: 295 | ERRORS: best=85, median=420.0, diversity=0.325 | INDIVIDUALS: n=200, avg_genome_length=16.3 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:19.465425 | GENERATION: 296 | ERRORS: best=85, median=425.0, diversity=0.23 | INDIVIDUALS: n=200, avg_genome_length=16.17 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:21.709253 | GENERATION: 297 | ERRORS: best=90, median=425.0, diversity=0.29 | INDIVIDUALS: n=200, avg_genome_length=15.94 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:24.674713 | GENERATION: 298 | ERRORS: best=90, median=325.0, diversity=0.26 | INDIVIDUALS: n=200, avg_genome_length=14.81 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:26.885552 | GENERATION: 299 | ERRORS: best=90, median=368.5, diversity=0.22 | INDIVIDUALS: n=200, avg_genome_length=14.78 | VIRUSES: gene_rate=0.000
+2021-12-20 15:41:29.082225 | GENERATION: 300 | ERRORS: best=90, median=425.0, diversity=0.225 | INDIVIDUALS: n=200, avg_genome_length=15.96 | VIRUSES: gene_rate=0.000
+Simplifying genome of length 18 with total error 50.
+Simplified genome by 1 to length 17.
+Simplified genome by 1 to length 16.
+Simplified genome by 1 to length 15.
+Simplified genome to length 15 and total error 50.
+========================================
+End Run
+========================================
+No solution found.
+Best Seen Individual
+	Genome:
+	 pvector([Literal(value=1, push_type=<pyshgp.push.types.PushIntType object at 0x7fb5cadadcd0>), Literal(value='small', push_type=<pyshgp.push.types.PushStrType object at 0x7fb5cadade20>), Literal(value='large', push_type=<pyshgp.push.types.PushStrType object at 0x7fb5cadad6a0>), Input(input_index=0), InstructionMeta(name='exec_shove_dup', code_blocks=1), InstructionMeta(name='exec_shove_dup', code_blocks=1), Input(input_index=0), InstructionMeta(name='int_inc', code_blocks=0), InstructionMeta(name='int_min', code_blocks=0), InstructionMeta(name='exec_dup_times', code_blocks=1), Input(input_index=0), InstructionMeta(name='exec_yank', code_blocks=0), Closer(), InstructionMeta(name='str_length', code_blocks=0), InstructionMeta(name='print_str', code_blocks=0)])
+	Program:
+	 (1 "small" "large" input_0 exec_shove_dup (exec_shove_dup (input_0 int_inc int_min exec_dup_times (input_0 exec_yank) str_length print_str)))
+	Error vector:
+	 [5 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 5 0 0 0 0
+ 0 0 5 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 5 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 5]
+	Total error:
+	 50
+	Test error:
+	 210
+	Time:
+	 00:16:38
