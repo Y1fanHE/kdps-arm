@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyshgp.push.atoms &#8212; PyshGP 0.1.8 documentation</title>
+    <link rel="stylesheet" href="../../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">PyshGP 0.1.8 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pyshgp.push.atoms</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyshgp.push.atoms</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;The :mod:`atoms` module defines all types of Push Atoms.</span>
+
+<span class="sd">An `Atom` is a piece of code in the Push language. Some `Atoms` only exist in `Programs` and some only exist in</span>
+<span class="sd">`Genomes`.</span>
+
+<span class="sd">A `Literal` atom is a constant value of one of the supported PushType.</span>
+
+<span class="sd">An `Instruction` atom is a wrapped function that can be used to manipulate a `PushState`. These atoms are where the</span>
+<span class="sd">logic of our Push programs is stored.</span>
+
+<span class="sd">An `Input` atom is a reference to one of the Push program&#39;s inputs (aka arguments). Inputs are referenced by position.</span>
+
+<span class="sd">A `CodeBlock` is a sequence of other Atoms is used to express nested block of code. They cannot appear in `Genomes`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span><span class="p">,</span> <span class="n">count</span>
+
+<span class="kn">from</span> <span class="nn">pyrsistent</span> <span class="kn">import</span> <span class="n">PClass</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">CheckedPVector</span>
+
+<span class="kn">from</span> <span class="nn">pyshgp.push.types</span> <span class="kn">import</span> <span class="n">PushType</span>
+
+
+<div class="viewcode-block" id="Atom"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.Atom">[docs]</a><span class="k">class</span> <span class="nc">Atom</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Base class of all Atoms. The fundamental element of Push programs.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Atom.pretty_str"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.Atom.pretty_str">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">pretty_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Generate a simple string representation of the Atom.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="Closer"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.Closer">[docs]</a><span class="k">class</span> <span class="nc">Closer</span><span class="p">(</span><span class="n">Atom</span><span class="p">,</span> <span class="n">PClass</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An Atom dedicated to denoting the close of a CodeBlock in a `Genomes` representation.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Closer.pretty_str"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.Closer.pretty_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Generate a simple string representation of the Atom.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;close&quot;</span></div></div>
+
+
+<div class="viewcode-block" id="Literal"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.Literal">[docs]</a><span class="k">class</span> <span class="nc">Literal</span><span class="p">(</span><span class="n">Atom</span><span class="p">,</span> <span class="n">PClass</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An Atom which holds a constant value.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    value : Any</span>
+<span class="sd">        The value to be stored in Literal.</span>
+<span class="sd">    push_type : PushType, optional</span>
+<span class="sd">        The `PushType` of the `Literal`. Usually, the PushType&#39;s underlying native</span>
+<span class="sd">        type is the same as the type of the Literal&#39;s value. The PushType is</span>
+<span class="sd">        used to determine how to route the Literal onto the correct PushStack</span>
+<span class="sd">        of the PushState during program execution.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">__invariant__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">push_type</span><span class="o">.</span><span class="n">is_instance</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="s2">&quot;Value is not of PushType.&quot;</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">push_type</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">PushType</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Literal.pretty_str"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.Literal.pretty_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Generate a simple string representation of the Literal.&quot;&quot;&quot;</span>
+        <span class="c1"># @todo make smarter by using a method on the PushType.</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">s</span></div></div>
+
+
+<div class="viewcode-block" id="InstructionMeta"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.InstructionMeta">[docs]</a><span class="k">class</span> <span class="nc">InstructionMeta</span><span class="p">(</span><span class="n">Atom</span><span class="p">,</span> <span class="n">PClass</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An identifier of a Push Instruction.</span>
+
+<span class="sd">    The `InstructionMeta` is a placeholder atom. When a PushInterpreter evaluates</span>
+<span class="sd">    an instruction ID, it searches for an instruction with the given</span>
+<span class="sd">    name in its `InstructionSet`. If found, this instruction is evaluated by the `PushInterpreter`.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name: str</span>
+<span class="sd">        The name of the Instruction being referenced.</span>
+<span class="sd">    code_blocks: int</span>
+<span class="sd">        The number of code blocks that are expected to follow the instruction.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">code_blocks</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="InstructionMeta.pretty_str"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.InstructionMeta.pretty_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Generate a simple string representation of the Instruction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div></div>
+
+
+<div class="viewcode-block" id="Input"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.Input">[docs]</a><span class="k">class</span> <span class="nc">Input</span><span class="p">(</span><span class="n">Atom</span><span class="p">,</span> <span class="n">PClass</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A reference to a positional argument of the `PushProgram` which the atom is part of.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_index: int</span>
+<span class="sd">        The position of the associated input to Push program.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_index</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Input.pretty_str"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.Input.pretty_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Generate a simple string representation of the Input.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;input_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_index</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CodeBlock"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.CodeBlock">[docs]</a><span class="k">class</span> <span class="nc">CodeBlock</span><span class="p">(</span><span class="n">Atom</span><span class="p">,</span> <span class="n">CheckedPVector</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An `Atom` which holds a sequence of other atoms in order to express a nested code block.&quot;&quot;&quot;</span>
+
+    <span class="n">__type__</span> <span class="o">=</span> <span class="n">Atom</span>
+
+<div class="viewcode-block" id="CodeBlock.size"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.CodeBlock.size">[docs]</a>    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the size of the block and the size of all the nested blocks.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">el</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">CodeBlock</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="CodeBlock.depth"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.CodeBlock.depth">[docs]</a>    <span class="k">def</span> <span class="nf">depth</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the farthest depth of the CodeBlock.&quot;&quot;&quot;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">count</span><span class="p">():</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">chain</span><span class="p">([</span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span> <span class="n">i</span><span class="p">)</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">i</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">level</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="CodeBlock.code_at_point"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.CodeBlock.code_at_point">[docs]</a>    <span class="k">def</span> <span class="nf">code_at_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ndx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Atom</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Return a nested element of the CodeBlock using depth first traversal.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ndx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">ndx</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">el</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">CodeBlock</span><span class="p">):</span>
+                <span class="n">next_depth</span> <span class="o">=</span> <span class="n">el</span><span class="o">.</span><span class="n">code_at_point</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">next_depth</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">next_depth</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">el</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="CodeBlock.with_code_inserted_at_point"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.CodeBlock.with_code_inserted_at_point">[docs]</a>    <span class="k">def</span> <span class="nf">with_code_inserted_at_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="n">Atom</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CodeBlock</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Insert an element into the CodeBlock using depth first traversal.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attempt_code_insert</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new</span></div>
+
+    <span class="k">def</span> <span class="nf">_attempt_code_insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="n">Atom</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">CodeBlock</span><span class="p">]:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">new</span> <span class="o">=</span> <span class="n">CodeBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">code</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="p">[</span><span class="n">idx</span><span class="p">:])</span>
+                <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">new</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">CodeBlock</span><span class="p">):</span>
+                <span class="n">inserted</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="n">el</span><span class="o">.</span><span class="n">_attempt_code_insert</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">inserted</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="p">(</span><span class="n">el</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="bp">self</span>
+
+<div class="viewcode-block" id="CodeBlock.pretty_str"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.atoms.CodeBlock.pretty_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Generate a simple string representation of the CodeBlock.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">el</span><span class="o">.</span><span class="n">pretty_str</span><span class="p">()</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">PyshGP 0.1.8 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pyshgp.push.atoms</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Edward Pantridge.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

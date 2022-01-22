@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyshgp.push.interpreter &#8212; PyshGP 0.1.8 documentation</title>
+    <link rel="stylesheet" href="../../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">PyshGP 0.1.8 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pyshgp.push.interpreter</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyshgp.push.interpreter</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;The :mod:`interpreter` module defines the ``PushInterpreter`` used to run Push programs.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="kn">from</span> <span class="nn">pyshgp.push.instruction</span> <span class="kn">import</span> <span class="n">Instruction</span>
+<span class="kn">from</span> <span class="nn">pyshgp.push.program</span> <span class="kn">import</span> <span class="n">Program</span>
+<span class="kn">from</span> <span class="nn">pyshgp.push.state</span> <span class="kn">import</span> <span class="n">PushState</span>
+<span class="kn">from</span> <span class="nn">pyshgp.push.instruction_set</span> <span class="kn">import</span> <span class="n">InstructionSet</span>
+<span class="kn">from</span> <span class="nn">pyshgp.push.atoms</span> <span class="kn">import</span> <span class="n">Atom</span><span class="p">,</span> <span class="n">Closer</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">InstructionMeta</span><span class="p">,</span> <span class="n">CodeBlock</span><span class="p">,</span> <span class="n">Input</span>
+<span class="kn">from</span> <span class="nn">pyshgp.push.config</span> <span class="kn">import</span> <span class="n">PushConfig</span>
+<span class="kn">from</span> <span class="nn">pyshgp.tap</span> <span class="kn">import</span> <span class="n">tap</span>
+<span class="kn">from</span> <span class="nn">pyshgp.validation</span> <span class="kn">import</span> <span class="n">PushError</span>
+
+
+<div class="viewcode-block" id="PushInterpreterStatus"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.interpreter.PushInterpreterStatus">[docs]</a><span class="k">class</span> <span class="nc">PushInterpreterStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Enum class of all potential statuses of a PushInterpreter.&quot;&quot;&quot;</span>
+
+    <span class="n">normal</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">step_limit_exceeded</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">runtime_limit_exceeded</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">growth_cap_exceeded</span> <span class="o">=</span> <span class="mi">4</span></div>
+
+
+<div class="viewcode-block" id="PushInterpreter"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.interpreter.PushInterpreter">[docs]</a><span class="k">class</span> <span class="nc">PushInterpreter</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;An interpreter capable of running Push programs.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    instruction_set : Union[InstructionSet, str], optional</span>
+<span class="sd">        The ``InstructionSet`` to use for executing programs. Default is &quot;core&quot;</span>
+<span class="sd">        which instantiates an ``InstructionSet`` using all the core instructions.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    instruction_set : InstructionSet</span>
+<span class="sd">        The ``InstructionSet`` to use for executing programs.</span>
+<span class="sd">    state : PushState</span>
+<span class="sd">        The current ``PushState``. Contains one stack for each ``PushType``</span>
+<span class="sd">        mentioned by the instructions in the instruction set.</span>
+<span class="sd">    status : PushInterpreterStatus</span>
+<span class="sd">        A string denoting if the interpreter has encountered a situation</span>
+<span class="sd">        where non-standard termination was required.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">instruction_set</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InstructionSet</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;core&quot;</span><span class="p">,</span>
+                 <span class="n">reset_on_run</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_on_run</span> <span class="o">=</span> <span class="n">reset_on_run</span>
+        <span class="c1"># If no instruction set given, create one and register all instructions.</span>
+        <span class="k">if</span> <span class="n">instruction_set</span> <span class="o">==</span> <span class="s2">&quot;core&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">instruction_set</span> <span class="o">=</span> <span class="n">InstructionSet</span><span class="p">(</span><span class="n">register_core</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">instruction_set</span> <span class="o">=</span> <span class="n">instruction_set</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">type_library</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruction_set</span><span class="o">.</span><span class="n">type_library</span>
+
+        <span class="c1"># Initialize the PushState and status</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">:</span> <span class="n">PushState</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">:</span> <span class="n">PushInterpreterStatus</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">library_type_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type_library</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">required_stacks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruction_set</span><span class="o">.</span><span class="n">required_stacks</span><span class="p">()</span> <span class="o">-</span> <span class="p">{</span><span class="s2">&quot;stdout&quot;</span><span class="p">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">,</span> <span class="s2">&quot;untyped&quot;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">required_stacks</span> <span class="o">&lt;=</span> <span class="n">library_type_names</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;PushInterpreter instruction_set and type_library are incompatible. </span><span class="si">{iset}</span><span class="s2"> vs </span><span class="si">{tlib}</span><span class="s2">. Diff: </span><span class="si">{d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">iset</span><span class="o">=</span><span class="n">required_stacks</span><span class="p">,</span>
+                    <span class="n">tlib</span><span class="o">=</span><span class="n">library_type_names</span><span class="p">,</span>
+                    <span class="n">d</span><span class="o">=</span><span class="n">required_stacks</span> <span class="o">-</span> <span class="n">library_type_names</span><span class="p">,</span>
+                <span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_evaluate_instruction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instruction</span><span class="p">:</span> <span class="n">Instruction</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">PushConfig</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">instruction</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PushInterpreter.untyped_to_typed"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.interpreter.PushInterpreter.untyped_to_typed">[docs]</a>    <span class="k">def</span> <span class="nf">untyped_to_typed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Infer ``PushType`` of items on state&#39;s untyped queue and push to corresponding stacks.&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">untyped</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">el</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">untyped</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+            <span class="n">push_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">type_library</span><span class="o">.</span><span class="n">push_type_of</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">error_on_not_found</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">push_type</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">el</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PushInterpreter.evaluate_atom"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.interpreter.PushInterpreter.evaluate_atom">[docs]</a>    <span class="nd">@tap</span>
+    <span class="k">def</span> <span class="nf">evaluate_atom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atom</span><span class="p">:</span> <span class="n">Atom</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">PushConfig</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evaluate an ``Atom``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        atom : Atom</span>
+<span class="sd">            The Atom (``Literal``, ``InstructionMeta``, ``Input``, or ``CodeBlock``) to</span>
+<span class="sd">            evaluate against the current ``PushState``.</span>
+<span class="sd">        config : PushConfig</span>
+<span class="sd">            The configuration of the Push program being run.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">InstructionMeta</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate_instruction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instruction_set</span><span class="p">[</span><span class="n">atom</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="n">config</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">Input</span><span class="p">):</span>
+                <span class="n">input_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="n">atom</span><span class="o">.</span><span class="n">input_index</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">untyped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">CodeBlock</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">atom</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;exec&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">Literal</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">atom</span><span class="o">.</span><span class="n">push_type</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">Closer</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">PushError</span><span class="p">(</span><span class="s2">&quot;Closers should not be in push programs. Only genomes.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">PushError</span><span class="p">(</span><span class="s2">&quot;Cannot evaluate </span><span class="si">{t}</span><span class="s2">, require a subclass of Atom&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">untyped_to_typed</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">err_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">err_msg</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="n">PushError</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{t}</span><span class="s2"> raised while evaluating </span><span class="si">{atom}</span><span class="s2">. Original message: </span><span class="se">\&quot;</span><span class="si">{m}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">t</span><span class="o">=</span><span class="n">err_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                    <span class="n">atom</span><span class="o">=</span><span class="n">atom</span><span class="p">,</span>
+                    <span class="n">m</span><span class="o">=</span><span class="n">err_msg</span>
+                <span class="p">))</span></div>
+
+<div class="viewcode-block" id="PushInterpreter.run"><a class="viewcode-back" href="../../../api/push.html#pyshgp.push.interpreter.PushInterpreter.run">[docs]</a>    <span class="nd">@tap</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">program</span><span class="p">:</span> <span class="n">Program</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+            <span class="n">print_trace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Run a Push ``Program`` given some inputs and desired output ``PushTypes``.</span>
+
+<span class="sd">        The general flow of this method is:</span>
+<span class="sd">            1. Create a new push state</span>
+<span class="sd">            2. Load the program and inputs.</span>
+<span class="sd">            3. If the exec stack is empty, return the outputs.</span>
+<span class="sd">            4. Else, pop the exec stack and process the atom.</span>
+<span class="sd">            5. Return to step 3.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        program : Program</span>
+<span class="sd">            Program to run.</span>
+<span class="sd">        inputs : list</span>
+<span class="sd">            A sequence of values to use as inputs to the push program.</span>
+<span class="sd">        print_trace : bool</span>
+<span class="sd">            If True, each step of program execution will be summarized in stdout.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Sequence</span>
+<span class="sd">            A sequence of values pulled from the final push state. May contain</span>
+<span class="sd">            pyshgp.utils.Token.no_stack_item if output stacks are empty.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">push_config</span> <span class="o">=</span> <span class="n">program</span><span class="o">.</span><span class="n">signature</span><span class="o">.</span><span class="n">push_config</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset_on_run</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">PushState</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type_library</span><span class="p">,</span> <span class="n">push_config</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">PushInterpreterStatus</span><span class="o">.</span><span class="n">normal</span>
+
+        <span class="c1"># Setup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">load_code</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">load_inputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">stop_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="n">push_config</span><span class="o">.</span><span class="n">runtime_limit</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">print_trace</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initial State:&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+
+        <span class="c1"># Iterate atom evaluation until entire program is evaluated.</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;exec&quot;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Stopping conditions</span>
+            <span class="k">if</span> <span class="n">steps</span> <span class="o">&gt;</span> <span class="n">push_config</span><span class="o">.</span><span class="n">step_limit</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">PushInterpreterStatus</span><span class="o">.</span><span class="n">step_limit_exceeded</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">stop_time</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">PushInterpreterStatus</span><span class="o">.</span><span class="n">runtime_limit_exceeded</span>
+                <span class="k">break</span>
+
+            <span class="c1"># Next atom in the program to evaluate.</span>
+            <span class="n">next_atom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;exec&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">print_trace</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Current Atom: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_atom</span><span class="p">))</span>
+
+            <span class="c1"># Evaluate atom.</span>
+            <span class="n">old_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_atom</span><span class="p">(</span><span class="n">next_atom</span><span class="p">,</span> <span class="n">push_config</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">old_size</span> <span class="o">+</span> <span class="n">push_config</span><span class="o">.</span><span class="n">growth_cap</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">PushInterpreterStatus</span><span class="o">.</span><span class="n">growth_cap_exceeded</span>
+                <span class="k">break</span>
+
+            <span class="k">if</span> <span class="n">print_trace</span><span class="p">:</span>
+                <span class="n">duration</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current State (step </span><span class="si">{step}</span><span class="s2">):&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="n">steps</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step duration:&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="p">)</span>
+            <span class="n">steps</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">print_trace</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished program evaluation.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">observe_stacks</span><span class="p">(</span><span class="n">program</span><span class="o">.</span><span class="n">signature</span><span class="o">.</span><span class="n">output_stacks</span><span class="p">)</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">PyshGP 0.1.8 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pyshgp.push.interpreter</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Edward Pantridge.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
