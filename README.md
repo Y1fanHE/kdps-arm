@@ -108,8 +108,9 @@ the command to run these experiments.
 
 ## Check the results
 
-- The raw data of the experiments is stored in the [`02`](/02), [`04`](/04),
-[`14`](/14), [`27`](/27), [`c01`](/c01), and [`c02`](/c02) folders.
+- The raw data of the experiments is stored in the [`02/dat`](/02/dat),
+  [`04/dat`](/04/dat), [`14/dat`](/14/dat), [`27/dat`](/27/dat),
+  [`c01/dat`](/c01/dat), and [`c02/dat`](/c02/dat) folders.
 
 - You can also check the results with [exp1.ipynb](/exp1.ipynb),
 [exp2.ipynb](/exp2.ipynb), [exp3.ipynb](/exp3.ipynb), and
