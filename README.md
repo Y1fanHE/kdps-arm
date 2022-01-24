@@ -29,25 +29,11 @@ previous problem-solving experience.** We use sub-programs as knowledge in the c
 
 ### General framework of knowledge-driven program synthesis (simple version)
 
-```mermaid
-flowchart LR
-Problem([Problem]) -- input --> GP;
-GP -- evaluate --> OnlineKA[(Online<br>Knowledge<br>Archive)];
-OnlineKA -- select --> GP;
-OfflineKA[(Offline<br>Knowledge<br>Archive)] -- select --> OnlineKA;
-GP -- save --> OfflineKA;
-OfflineKA -- organize -->OfflineKA;
-```
+[![](https://mermaid.ink/img/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbk9mZmxpbmVLQVsoT2ZmbGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldIC0tIHNlbGVjdCAtLT4gT25saW5lS0E7XG5HUCAtLSBzYXZlIC0tPiBPZmZsaW5lS0E7XG5PZmZsaW5lS0EgLS0gb3JnYW5pemUgLS0-T2ZmbGluZUtBO1xuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbk9mZmxpbmVLQVsoT2ZmbGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldIC0tIHNlbGVjdCAtLT4gT25saW5lS0E7XG5HUCAtLSBzYXZlIC0tPiBPZmZsaW5lS0E7XG5PZmZsaW5lS0EgLS0gb3JnYW5pemUgLS0-T2ZmbGluZUtBO1xuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0)
 
 ### Framework in the current study
 
-```mermaid
-flowchart LR
-Problem([Problem]) -- input --> GP;
-GP -- evaluate --> OnlineKA[(Online<br>Knowledge<br>Archive)];
-OnlineKA -- select --> GP;
-Human --create-->OnlineKA
-```
+[![](https://mermaid.ink/img/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbkh1bWFuIC0tY3JlYXRlLS0-T25saW5lS0FcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbkh1bWFuIC0tY3JlYXRlLS0-T25saW5lS0FcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)
 
 ## Implementation and code for the experiments
 
