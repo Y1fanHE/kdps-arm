@@ -6,13 +6,14 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
 - [PushGP with Adaptive Replacement Mutation and Knowledge](#pushgp-with-adaptive-replacement-mutation-and-knowledge)
   - [General idea of the study](#general-idea-of-the-study)
     - [Objectives](#objectives)
-    - [General framework of knowledge-driven program synthesis (simple version)](#general-framework-of-knowledge-driven-program-synthesis-simple-version)
+    - [General framework of Knowledge-Driven Program Synthesis (simple version)](#general-framework-of-knowledge-driven-program-synthesis-simple-version)
     - [Framework in the current study](#framework-in-the-current-study)
   - [Implementation and code for the experiments](#implementation-and-code-for-the-experiments)
     - [Preparation](#preparation)
     - [Run the experiments](#run-the-experiments)
     - [Check the results](#check-the-results)
     - [Quick view of the results](#quick-view-of-the-results)
+  - [Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system)
   - [Acknowledgements](#acknowledgements)
 
 ## General idea of the study
@@ -25,15 +26,38 @@ programmer. Usually, a human programmer writes code based on his knowledge from
 his previous programming experience.
 
 **This study aims to build a system so that GP could use the knowledge from its
-previous problem-solving experience.** We use sub-programs as knowledge in the current study.
+previous problem-solving experience.** We use sub-programs as knowledge in the
+current study.
 
-### General framework of knowledge-driven program synthesis (simple version)
+### General framework of Knowledge-Driven Program Synthesis (simple version)
 
 [![](https://mermaid.ink/img/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbk9mZmxpbmVLQVsoT2ZmbGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldIC0tIHNlbGVjdCAtLT4gT25saW5lS0E7XG5HUCAtLSBzYXZlIC0tPiBPZmZsaW5lS0E7XG5PZmZsaW5lS0EgLS0gb3JnYW5pemUgLS0-T2ZmbGluZUtBO1xuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbk9mZmxpbmVLQVsoT2ZmbGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldIC0tIHNlbGVjdCAtLT4gT25saW5lS0E7XG5HUCAtLSBzYXZlIC0tPiBPZmZsaW5lS0E7XG5PZmZsaW5lS0EgLS0gb3JnYW5pemUgLS0-T2ZmbGluZUtBO1xuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0)
+
+The flowchart above shows a simple version of our framework of the
+*Knowledge-Driven Program Synthesis* (KDPS) system. It works as follows.
+
+1. The system initializes an empty Offline Knowledge Archive (KA) ***Koff[0]***
+   to store knowledge
+2. A user inputs the initial problem ***p[0]*** to solve
+3. GP solves ***p[0]***
+4. The system saves the extracted knowledge ***K(p[t])*** in an
+   Offline KA ***Koff[t]*** to form ***Koff[t+1]***
+5. The user inputs ***t***-th problem ***p[t]*** to solve
+6. The system selects a subset of ***Koff[t]*** to form an Online KA
+   ***Kon[t]*** based on ***p_t***
+7. GP solves ***p[t]*** using ***Kon[t]*** by its adaptively select and evaluate
+   knowledge
+8. Go to step 4
+
+A more detailed design of our conceptual system is in [Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system).
 
 ### Framework in the current study
 
 [![](https://mermaid.ink/img/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbkh1bWFuIC0tY3JlYXRlLS0-T25saW5lS0FcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbkh1bWFuIC0tY3JlYXRlLS0-T25saW5lS0FcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)
+
+In the current study, we ommit the Offline KA and focus on the implementation of
+Online KA as the first step. Therefore, the steps related to Offline KA are
+replaced by human.
 
 ## Implementation and code for the experiments
 
@@ -161,6 +185,8 @@ move to the [`fig`](/fig) folder by the following command.
   problems in Experiment II
 
   ![success-rate](/img/transfer.success.rate.test.png)
+
+## Detailed design of the conceptual system
 
 ## Acknowledgements
 
