@@ -4,12 +4,54 @@ Code and data repository for the paper titled as "Incorporating Sub-programs as
 Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
 
 - [PushGP with Adaptive Replacement Mutation and Knowledge](#pushgp-with-adaptive-replacement-mutation-and-knowledge)
-  - [Preparation](#preparation)
-  - [Run the experiments](#run-the-experiments)
-  - [Check the results](#check-the-results)
-  - [Quick view of the results](#quick-view-of-the-results)
+  - [General idea of the study](#general-idea-of-the-study)
+    - [Objectives](#objectives)
+    - [General framework of knowledge-driven program synthesis (simple version)](#general-framework-of-knowledge-driven-program-synthesis-simple-version)
+    - [Framework in the current study](#framework-in-the-current-study)
+  - [Implementation and code for the experiments](#implementation-and-code-for-the-experiments)
+    - [Preparation](#preparation)
+    - [Run the experiments](#run-the-experiments)
+    - [Check the results](#check-the-results)
+    - [Quick view of the results](#quick-view-of-the-results)
+  - [Acknowledgements](#acknowledgements)
 
-## Preparation
+## General idea of the study
+
+### Objectives
+
+Genetic programming (GP) searches a program by random initialization, unguided
+variation, and fitness-guided selection. This shows a difference to a human
+programmer. Usually, a human programmer writes code based on his knowledge from
+his previous programming experience.
+
+**This study aims to build a system so that GP could use the knowledge from its
+previous problem-solving experience.** We use sub-programs as knowledge in the current study.
+
+### General framework of knowledge-driven program synthesis (simple version)
+
+```mermaid
+flowchart LR
+Problem([Problem]) -- input --> GP;
+GP -- evaluate --> OnlineKA[(Online<br>Knowledge<br>Archive)];
+OnlineKA -- select --> GP;
+OfflineKA[(Offline<br>Knowledge<br>Archive)] -- select --> OnlineKA;
+GP -- save --> OfflineKA;
+OfflineKA -- organize -->OfflineKA;
+```
+
+### Framework in the current study
+
+```mermaid
+flowchart LR
+Problem([Problem]) -- input --> GP;
+GP -- evaluate --> OnlineKA[(Online<br>Knowledge<br>Archive)];
+OnlineKA -- select --> GP;
+Human --create-->OnlineKA
+```
+
+## Implementation and code for the experiments
+
+### Preparation
 
 1. Clone the entire repository
 
@@ -74,7 +116,7 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
    python 02/umad.py 1000
    ```
 
-## Run the experiments
+### Run the experiments
 
 In the paper, we totally performed the following experiments. We list them with
 the command to run these experiments.
@@ -106,7 +148,7 @@ the command to run these experiments.
     ./expc01.sh && ./expc02.sh
     ```
 
-## Check the results
+### Check the results
 
 - The raw data of the experiments is stored in the [`02/dat`](/02/dat),
   [`04/dat`](/04/dat), [`14/dat`](/14/dat), [`27/dat`](/27/dat),
@@ -123,7 +165,7 @@ move to the [`fig`](/fig) folder by the following command.
    ./rename_img.sh
    ```
 
-## Quick view of the results
+### Quick view of the results
 
 - The success rate of five methods on four benchmark problems in Experiment I
 
@@ -133,3 +175,7 @@ move to the [`fig`](/fig) folder by the following command.
   problems in Experiment II
 
   ![success-rate](/img/transfer.success.rate.test.png)
+
+## Acknowledgements
+
+Our implementation is based on [PyshGP](https://github.com/erp12/pyshgp).
