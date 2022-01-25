@@ -27,7 +27,7 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
          <a href="#general-idea-of-the-study">General idea of the study</a>
          <ul>
             <li><a href="#objectives">Objectives</a></li>
-            <li><a href="##general-framework-of-knowledge-driven-program-synthesis-simple-version">General framework of Knowledge-Driven Program Synthesis (simple version)</a></li>
+            <li><a href="#general-framework-of-knowledge-driven-program-synthesis-simple-version">General framework of Knowledge-Driven Program Synthesis (simple version)</a></li>
             <li><a href="#framework-in-the-current-study">Framework in the current study</a></li>
          </ul>
       </li>
