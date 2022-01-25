@@ -256,6 +256,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">&uparrow;<a href="#top">back to top</a></p>
 
+## Contact
+
+Yifan He - [he.yifan.xs@alumni.tsukuba.ac.jp](mailto:he.yifan.xs@alumni.tsukuba.ac.jp)
+
+Claus Aranha - [caranha@cs.tsukuba.ac.jp](mailto:caranha@cs.tsukuba.ac.jp)
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
 ## Acknowledgements
 
 Our implementation is based on [PyshGP](https://github.com/erp12/pyshgp). We are
