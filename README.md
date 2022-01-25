@@ -5,26 +5,52 @@
 Code and data repository for the paper titled as "Incorporating Sub-programs as
 Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
 
-- [PushGP with Adaptive Replacement Mutation and Knowledge](#pushgp-with-adaptive-replacement-mutation-and-knowledge)
-  - [Getting started](#getting-started)
-    - [Preparation](#preparation)
-    - [Installation](#installation)
-  - [Usage](#usage)
-    - [Experiments](#experiments)
-    - [Check the results](#check-the-results)
-    - [Quick view of the results](#quick-view-of-the-results)
-  - [General idea of the study](#general-idea-of-the-study)
-    - [Objectives](#objectives)
-    - [General framework of Knowledge-Driven Program Synthesis (simple version)](#general-framework-of-knowledge-driven-program-synthesis-simple-version)
-    - [Framework in the current study](#framework-in-the-current-study)
-  - [Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system)
-    - [GP and Online Knowledge Archive](#gp-and-online-knowledge-archive)
-    - [GP and Offline Knowledge Archive](#gp-and-offline-knowledge-archive)
-    - [Online KA and Offline Knowledge Archive](#online-ka-and-offline-knowledge-archive)
-    - [Offline Knowledge Archive](#offline-knowledge-archive)
-  - [License](#license)
-  - [Contact](#contact)
-  - [Acknowledgements](#acknowledgements)
+<details>
+   <summary>Table of Contents</summary>
+   <ul>
+      <li>
+         <a href src="#getting-started">Getting started</a>
+         <ul>
+            <li><a href src="#preparation">Preparation</a></li>
+            <li><a href src="#installation">Installation</a></li>
+         </ul>
+      </li>
+      <li>
+         <a href src="#usage">Usage</a>
+         <ul>
+            <li><a href src="#experiments">Experiments</a></li>
+            <li><a href src="#check-the-results">Check the results</a></li>
+            <li><a href src="#quick-view-of-the-results">Quick view of the results</a></li>
+         </ul>
+      </li>
+      <li>
+         <a href src="#general-idea-of-the-study">General idea of the study</a>
+         <ul>
+            <li><a href src="#objectives">Objectives</a></li>
+            <li><a href src="##general-framework-of-knowledge-driven-program-synthesis-simple-version">General framework of Knowledge-Driven Program Synthesis (simple version)</a></li>
+            <li><a href src="#framework-in-the-current-study">Framework in the current study</a></li>
+         </ul>
+      </li>
+      <li>
+         <a href src="#detailed-design-of-the-conceptual-system">Detailed design of the conceptual system</a>
+         <ul>
+            <li><a href src="#gp-and-online-knowledge-archive">GP and Online Knowledge Archive</a></li>
+            <li><a href src="#gp-and-offline-knowledge-archive">GP and Offline Knowledge Archive</a></li>
+            <li><a href src="#online-ka-and-offline-knowledge-archive">Online KA and Offline Knowledge Archive</a></li>
+            <li><a href src="#offline-knowledge-archive">Offline Knowledge Archive</a></li>
+         </ul>
+      </li>
+      <li>
+         <a href src="#license">License</a>
+      </li>
+      <li>
+         <a href src="#contact">Contact</a>
+      </li>
+      <li>
+         <a href src="#acknowledgements">Acknowledgements</a>
+      </li>
+   </ul>
+</details>
 
 ## Getting started
 
