@@ -1,75 +1,45 @@
+<div id="top"></div>
+
 # PushGP with Adaptive Replacement Mutation and Knowledge
 
 Code and data repository for the paper titled as "Incorporating Sub-programs as
 Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
 
 - [PushGP with Adaptive Replacement Mutation and Knowledge](#pushgp-with-adaptive-replacement-mutation-and-knowledge)
+  - [Getting started](#getting-started)
+    - [Preparation](#preparation)
+    - [Installation](#installation)
+  - [Usage](#usage)
+    - [Experiments](#experiments)
+    - [Check the results](#check-the-results)
+    - [Quick view of the results](#quick-view-of-the-results)
   - [General idea of the study](#general-idea-of-the-study)
     - [Objectives](#objectives)
     - [General framework of Knowledge-Driven Program Synthesis (simple version)](#general-framework-of-knowledge-driven-program-synthesis-simple-version)
     - [Framework in the current study](#framework-in-the-current-study)
-  - [Implementation and code for the experiments](#implementation-and-code-for-the-experiments)
-    - [Preparation](#preparation)
-    - [Run the experiments](#run-the-experiments)
-    - [Check the results](#check-the-results)
-    - [Quick view of the results](#quick-view-of-the-results)
   - [Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system)
     - [GP and Online Knowledge Archive](#gp-and-online-knowledge-archive)
     - [GP and Offline Knowledge Archive](#gp-and-offline-knowledge-archive)
     - [Online KA and Offline Knowledge Archive](#online-ka-and-offline-knowledge-archive)
     - [Offline Knowledge Archive](#offline-knowledge-archive)
+  - [License](#license)
   - [Acknowledgements](#acknowledgements)
 
-## General idea of the study
-
-### Objectives
-
-Genetic programming (GP) searches a program by random initialization, unguided
-variation, and fitness-guided selection. This shows a difference to a human
-programmer. Usually, a human programmer writes code based on his knowledge from
-his previous programming experience.
-
-**This study aims to build a system so that GP could use the knowledge from its
-previous problem-solving experience.** We use sub-programs as knowledge in the
-current study.
-
-Click [here](/README-knowledge.md) to see a detailed
-description of knowledge.
-
-### General framework of Knowledge-Driven Program Synthesis (simple version)
-
-<img src=img-readme/simple.png width=720>
-
-The flowchart above shows a simple version of our framework of the
-*Knowledge-Driven Program Synthesis* (KDPS) system. It works as follows.
-
-1. The system initializes an empty Offline Knowledge Archive (KA) ***Koff[0]***
-   to store knowledge
-2. A user inputs the initial problem ***p[0]*** to solve
-3. GP solves ***p[0]***
-4. The system saves the extracted knowledge ***K(p[t])*** in an
-   Offline KA ***Koff[t]*** to form ***Koff[t+1]***
-5. The user inputs ***t***-th problem ***p[t]*** to solve
-6. The system selects a subset of ***Koff[t]*** to form an Online KA
-   ***Kon[t]*** based on ***p_t***
-7. GP solves ***p[t]*** using ***Kon[t]*** by its adaptively select and evaluate
-   knowledge
-8. Go to step 4
-
-A more detailed design of our conceptual system is in
-[Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system).
-
-### Framework in the current study
-
-<img src=img-readme/simple-current.png width=720>
-
-In the current study, we ommit the Offline KA and focus on the implementation of
-Online KA as the first step. Therefore, the steps related to Offline KA are
-replaced by human.
-
-## Implementation and code for the experiments
+## Getting started
 
 ### Preparation
+
+1. Install Python 3 on your computer
+
+2. Install required libraries
+
+   ```bash
+   pip install numpy pyyaml
+   ```
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
+### Installation
 
 1. Clone the entire repository
 
@@ -78,22 +48,14 @@ replaced by human.
    mutation-with-knowledge.git
    ```
 
-2. Install Python 3 on your computer
-
-3. Install the modified PyshGP with the following commands
+2. Install the modified PyshGP with the following commands
 
    ```bash
    cd pyshgp
    pip install .
    ```
 
-4. Install other libraries
-
-   ```bash
-   pip install numpy pyyaml
-   ```
-
-5. Download [data files](https://drive.google.com/file/d/1QMT7BjbBqW9iyV5MH0EkhhBivDT8VoKl/view?usp=sharing)
+3. Download [data files](https://drive.google.com/file/d/1QMT7BjbBqW9iyV5MH0EkhhBivDT8VoKl/view?usp=sharing)
    of the benchmark problems and expand the archive
 
    ```bash
@@ -103,7 +65,7 @@ replaced by human.
    This should create a folder named `psgb` including data files of the four
    problems at the root of this repository.
 
-6. Test your installation
+5. Test your installation
 
    The following command runs PushGP with UMAD to solve the Small or Large
    problem with seed 1000.
@@ -112,7 +74,12 @@ replaced by human.
    python 02/umad.py 1000
    ```
 
-### Run the experiments
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
+
+## Usage
+
+### Experiments
 
 In the paper, we totally performed the following experiments. We list them with
 the command to run these experiments.
@@ -144,6 +111,8 @@ the command to run these experiments.
     ./expc01.sh && ./expc02.sh
     ```
 
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
 ### Check the results
 
 - The raw data of the experiments is stored in the [`02/dat`](/02/dat),
@@ -161,16 +130,79 @@ move to the [`fig`](/fig) folder by the following command.
    ./rename_img.sh
    ```
 
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
 ### Quick view of the results
 
 - The success rate of five methods on four benchmark problems in Experiment I
 
-   <img src=/img/main.success.rate.test.png width=640>
+   <img src=img/main.success.rate.test.png width=640>
 
 - The success rate of three methods on four bemchmark problems and two composite
   problems in Experiment II
 
-  <img src=/img/transfer.success.rate.test.png width=640>
+  <img src=img/transfer.success.rate.test.png width=640>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
+## General idea of the study
+
+### Objectives
+
+Genetic programming (GP) searches a program by random initialization, unguided
+variation, and fitness-guided selection. This shows a difference to a human
+programmer. Usually, a human programmer writes code based on his knowledge from
+his previous programming experience.
+
+**This study aims to build a system so that GP could use the knowledge from its
+previous problem-solving experience.** We use sub-programs as knowledge in the
+current study.
+
+Click [here](/README-knowledge.md) to see a detailed
+description of knowledge.
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
+### General framework of Knowledge-Driven Program Synthesis (simple version)
+
+<img src=img-readme/simple.png width=720>
+
+<details>
+   <summary>Details</summary>
+   The flowchart above shows a simple version of our framework of the
+   Knowledge-Driven Program Synthesis (KDPS) system. It works as follows.
+
+   1. The system initializes an empty Offline Knowledge Archive (KA) ***Koff[0]***
+      to store knowledge
+   2. A user inputs the initial problem ***p[0]*** to solve
+   3. GP solves ***p[0]***
+   4. The system saves the extracted knowledge ***K(p[t])*** in an
+      Offline KA ***Koff[t]*** to form ***Koff[t+1]***
+   5. The user inputs ***t***-th problem ***p[t]*** to solve
+   6. The system selects a subset of ***Koff[t]*** to form an Online KA
+      ***Kon[t]*** based on ***p_t***
+   7. GP solves ***p[t]*** using ***Kon[t]*** by its adaptively select and evaluate
+      knowledge
+   8. Go to step 4
+
+   A more detailed design of our conceptual system is in
+   [Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system).
+</details>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
+### Framework in the current study
+
+<img src=img-readme/simple-current.png width=720>
+
+<details>
+   <summary>Details</summary>
+   In the current study, we ommit the Offline KA and focus on the implementation of
+   Online KA as the first step. Therefore, the steps related to Offline KA are
+   replaced by human.
+</details>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
 
 ## Detailed design of the conceptual system
 
@@ -182,17 +214,47 @@ parts, namely **GP & Online KA**, **GP & Offline KA**,
 
 <img src=img-readme/detailed-gp-onka.png width=720>
 
+<details>
+   <summary>Details</summary>
+</details>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
 ### GP and Offline Knowledge Archive
 
 <img src=img-readme/detailed-gp-offka.png width=720>
+
+<details>
+   <summary>Details</summary>
+</details>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
 
 ### Online KA and Offline Knowledge Archive
 
 <img src=img-readme/detailed-on-off.png width=720>
 
+<details>
+   <summary>Details</summary>
+</details>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
 ### Offline Knowledge Archive
 
 <img src=img-readme/detailed-off.png width=720>
+
+<details>
+   <summary>Details</summary>
+</details>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
 
 ## Acknowledgements
 
@@ -204,3 +266,5 @@ The data files of the benchmark problems are from an
 [GitHub repository](https://github.com/thelmuth/program-synthesis-benchmark-datasets).
 We express our thanks to [@thelmuth](https://github.com/thelmuth) for this
 wonderful sharing.
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
