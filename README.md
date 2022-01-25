@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-# PushGP with Adaptive Replacement Mutation and Knowledge
+# Knowledge-Driven Program Synthesis - Adaptive Replace Mutation
 
 Code and data repository for the paper titled as "Incorporating Sub-programs as
 Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
