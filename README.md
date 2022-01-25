@@ -9,6 +9,14 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
    <summary>Table of Contents</summary>
    <ul>
       <li>
+         <a href="#general-idea-of-the-study">General idea of the study</a>
+         <ul>
+            <li><a href="#objectives">Objectives</a></li>
+            <li><a href="#general-framework-of-knowledge-driven-program-synthesis-simple-version">General framework of Knowledge-Driven Program Synthesis (simple version)</a></li>
+            <li><a href="#framework-in-the-current-study">Framework in the current study</a></li>
+         </ul>
+      </li>
+      <li>
          <a href="#getting-started">Getting started</a>
          <ul>
             <li><a href="#preparation">Preparation</a></li>
@@ -21,14 +29,6 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
             <li><a href="#experiments">Experiments</a></li>
             <li><a href="#check-the-results">Check the results</a></li>
             <li><a href="#quick-view-of-the-results">Quick view of the results</a></li>
-         </ul>
-      </li>
-      <li>
-         <a href="#general-idea-of-the-study">General idea of the study</a>
-         <ul>
-            <li><a href="#objectives">Objectives</a></li>
-            <li><a href="#general-framework-of-knowledge-driven-program-synthesis-simple-version">General framework of Knowledge-Driven Program Synthesis (simple version)</a></li>
-            <li><a href="#framework-in-the-current-study">Framework in the current study</a></li>
          </ul>
       </li>
       <li>
@@ -51,6 +51,67 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
       </li>
    </ul>
 </details>
+
+## General idea of the study
+
+### Objectives
+
+Genetic programming (GP) searches a program by random initialization, unguided
+variation, and fitness-guided selection. This shows a difference to a human
+programmer. Usually, a human programmer writes code based on his knowledge from
+his previous programming experience.
+
+**This study aims to build a system so that GP could use the knowledge from its
+previous problem-solving experience.** We use sub-programs as knowledge in the
+current study.
+
+Click [here](/README-knowledge.md) to see a detailed
+description of knowledge.
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
+### General framework of Knowledge-Driven Program Synthesis (simple version)
+
+<img src=img-readme/simple.png width=720>
+
+<details>
+   <summary>Details</summary>
+
+   The flowchart above shows a simple version of our framework of the
+   *Knowledge-Driven Program Synthesis* (KDPS) system. It works as follows.
+
+   1. The system initializes an empty Offline Knowledge Archive (KA)
+      ***Koff[0]*** to store knowledge.
+   2. A user inputs the initial problem ***p[0]*** to solve.
+   3. GP solves ***p[0]***.
+   4. The system saves the extracted knowledge ***K(p[t])*** in an
+      Offline KA ***Koff[t]*** to form ***Koff[t+1]***.
+   5. The user inputs ***t***-th problem ***p[t]*** to solve.
+   6. The system selects a subset of ***Koff[t]*** to form an Online KA
+      ***Kon[t]*** based on ***p_t***.
+   7. GP solves ***p[t]*** using ***Kon[t]*** by its adaptively select and
+      evaluate knowledge.
+   8. Go to step 4.
+
+   A more detailed design of our conceptual system is in
+   [Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system).
+
+</details>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
+
+### Framework in the current study
+
+<img src=img-readme/simple-current.png width=720>
+
+<details>
+   <summary>Details</summary>
+   In the current study, we ommit the Offline KA and focus on the implementation of
+   Online KA as the first step. Therefore, the steps related to Offline KA are
+   replaced by human.
+</details>
+
+<p align="right">&uparrow;<a href="#top">back to top</a></p>
 
 ## Getting started
 
@@ -183,67 +244,6 @@ the command to run these experiments.
   problems in Experiment II
 
   <img src=img/transfer.success.rate.test.png width=640>
-
-<p align="right">&uparrow;<a href="#top">back to top</a></p>
-
-## General idea of the study
-
-### Objectives
-
-Genetic programming (GP) searches a program by random initialization, unguided
-variation, and fitness-guided selection. This shows a difference to a human
-programmer. Usually, a human programmer writes code based on his knowledge from
-his previous programming experience.
-
-**This study aims to build a system so that GP could use the knowledge from its
-previous problem-solving experience.** We use sub-programs as knowledge in the
-current study.
-
-Click [here](/README-knowledge.md) to see a detailed
-description of knowledge.
-
-<p align="right">&uparrow;<a href="#top">back to top</a></p>
-
-### General framework of Knowledge-Driven Program Synthesis (simple version)
-
-<img src=img-readme/simple.png width=720>
-
-<details>
-   <summary>Details</summary>
-
-   The flowchart above shows a simple version of our framework of the
-   *Knowledge-Driven Program Synthesis* (KDPS) system. It works as follows.
-
-   1. The system initializes an empty Offline Knowledge Archive (KA)
-      ***Koff[0]*** to store knowledge.
-   2. A user inputs the initial problem ***p[0]*** to solve.
-   3. GP solves ***p[0]***.
-   4. The system saves the extracted knowledge ***K(p[t])*** in an
-      Offline KA ***Koff[t]*** to form ***Koff[t+1]***.
-   5. The user inputs ***t***-th problem ***p[t]*** to solve.
-   6. The system selects a subset of ***Koff[t]*** to form an Online KA
-      ***Kon[t]*** based on ***p_t***.
-   7. GP solves ***p[t]*** using ***Kon[t]*** by its adaptively select and
-      evaluate knowledge.
-   8. Go to step 4.
-
-   A more detailed design of our conceptual system is in
-   [Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system).
-
-</details>
-
-<p align="right">&uparrow;<a href="#top">back to top</a></p>
-
-### Framework in the current study
-
-<img src=img-readme/simple-current.png width=720>
-
-<details>
-   <summary>Details</summary>
-   In the current study, we ommit the Offline KA and focus on the implementation of
-   Online KA as the first step. Therefore, the steps related to Offline KA are
-   replaced by human.
-</details>
 
 <p align="right">&uparrow;<a href="#top">back to top</a></p>
 
