@@ -2,7 +2,7 @@
 
 # Knowledge-Driven Program Synthesis - Adaptive Replace Mutation
 
-Code and data repository for the paper titled as "Incorporating Sub-programs as
+>Code and data repository for the paper titled as "Incorporating Sub-programs as
 Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
 
 <details>
