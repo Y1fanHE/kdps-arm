@@ -14,6 +14,10 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
     - [Check the results](#check-the-results)
     - [Quick view of the results](#quick-view-of-the-results)
   - [Detailed design of the conceptual system](#detailed-design-of-the-conceptual-system)
+    - [GP and Online Knowledge Archive](#gp-and-online-knowledge-archive)
+    - [GP and Offline Knowledge Archive](#gp-and-offline-knowledge-archive)
+    - [Online KA and Offline Knowledge Archive](#online-ka-and-offline-knowledge-archive)
+    - [Offline Knowledge Archive](#offline-knowledge-archive)
   - [Acknowledgements](#acknowledgements)
 
 ## General idea of the study
@@ -91,31 +95,8 @@ replaced by human.
    tar zxvf psgb.tgz
    ```
 
-   Now, your folder looks as follows.
-
-   ```bash
-   tree -L 1
-   # .
-   # ├── 02
-   # ├── ..
-   # ├── BENCHMARK.md
-   # ├── c01
-   # ├── c02
-   # ├── clean.sh
-   # ├── dat.kgene.rate.csv
-   # ├── ...
-   # ├── exp102.sh
-   # ├── ...
-   # ├── fig
-   # ├── img
-   # ├── LICENSE
-   # ├── process.py
-   # ├── psgb
-   # ├── psgb.tgz
-   # ├── pyshgp
-   # ├── README.md
-   # └── rename_img.sh
-   ```
+   This should create a folder named `psgb` including data files of the four
+   problems at the root of this repository.
 
 6. Test your installation
 
@@ -188,21 +169,25 @@ move to the [`fig`](/fig) folder by the following command.
 
 ## Detailed design of the conceptual system
 
-- **GP and Online Knowledge Archive**
+This section describes the detailed design of our conceptual system in four
+parts, namely **GP & Online KA**, **GP & Offline KA**,
+**Online KA & Offline KA**, and **Offline KA**.
 
-  <img src=img-readme/detailed-gp-onka.png width=512>
+### GP and Online Knowledge Archive
 
-- **GP and Offline Knowledge Archive**
+<img src=img-readme/detailed-gp-onka.png width=512>
 
-  <img src=img-readme/detailed-gp-offka.png width=512>
+### GP and Offline Knowledge Archive
 
-- **Online KA and Offline Knowledge Archive**
+<img src=img-readme/detailed-gp-offka.png width=512>
 
-  <img src=img-readme/detailed-on-off.png width=512>
+### Online KA and Offline Knowledge Archive
 
-- **Offline Knowledge Archive**
+<img src=img-readme/detailed-on-off.png width=512>
 
-  <img src=img-readme/detailed-off.png width=362>
+### Offline Knowledge Archive
+
+<img src=img-readme/detailed-off.png width=362>
 
 ## Acknowledgements
 
