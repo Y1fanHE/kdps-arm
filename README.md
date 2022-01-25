@@ -33,7 +33,7 @@ his previous programming experience.
 previous problem-solving experience.** We use sub-programs as knowledge in the
 current study.
 
-Click [here](READEME-knowledge.md) to see a detailed
+Click [here](/README-knowledge.md) to see a detailed
 description of knowledge.
 
 ### General framework of Knowledge-Driven Program Synthesis (simple version)
