@@ -40,15 +40,6 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
             <li><a href="#offline-knowledge-archive">Offline Knowledge Archive</a></li>
          </ul>
       </li>
-      <li>
-         <a href="#license">License</a>
-      </li>
-      <li>
-         <a href="#contact">Contact</a>
-      </li>
-      <li>
-         <a href="#acknowledgements">Acknowledgements</a>
-      </li>
    </ul>
 </details>
 
