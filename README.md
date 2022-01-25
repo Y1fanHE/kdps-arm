@@ -258,9 +258,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Yifan He - [he.yifan.xs@alumni.tsukuba.ac.jp](mailto:he.yifan.xs@alumni.tsukuba.ac.jp)
-
-Claus Aranha - [caranha@cs.tsukuba.ac.jp](mailto:caranha@cs.tsukuba.ac.jp)
+- Yifan He ([he.yifan.xs@alumni.tsukuba.ac.jp](mailto:he.yifan.xs@alumni.tsukuba.ac.jp))
+- Claus Aranha ([caranha@cs.tsukuba.ac.jp](mailto:caranha@cs.tsukuba.ac.jp))
 
 <p align="right">&uparrow;<a href="#top">back to top</a></p>
 
