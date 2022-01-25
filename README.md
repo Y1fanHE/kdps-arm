@@ -31,7 +31,7 @@ current study.
 
 ### General framework of Knowledge-Driven Program Synthesis (simple version)
 
-[![](https://mermaid.ink/img/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbk9mZmxpbmVLQVsoT2ZmbGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldIC0tIHNlbGVjdCAtLT4gT25saW5lS0E7XG5HUCAtLSBzYXZlIC0tPiBPZmZsaW5lS0E7XG5PZmZsaW5lS0EgLS0gb3JnYW5pemUgLS0-T2ZmbGluZUtBO1xuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbk9mZmxpbmVLQVsoT2ZmbGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldIC0tIHNlbGVjdCAtLT4gT25saW5lS0E7XG5HUCAtLSBzYXZlIC0tPiBPZmZsaW5lS0E7XG5PZmZsaW5lS0EgLS0gb3JnYW5pemUgLS0-T2ZmbGluZUtBO1xuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0)
+<img src=img-readme/simple.png width=570>
 
 The flowchart above shows a simple version of our framework of the
 *Knowledge-Driven Program Synthesis* (KDPS) system. It works as follows.
@@ -53,7 +53,7 @@ A more detailed design of our conceptual system is in [Detailed design of the co
 
 ### Framework in the current study
 
-[![](https://mermaid.ink/img/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbkh1bWFuIC0tY3JlYXRlLS0-T25saW5lS0FcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5mbG93Y2hhcnQgTFJcblByb2JsZW0oW1Byb2JsZW1dKSAtLSBpbnB1dCAtLT4gR1A7XG5HUCAtLSBldmFsdWF0ZSAtLT4gT25saW5lS0FbKE9ubGluZTxicj5Lbm93bGVkZ2U8YnI-QXJjaGl2ZSldO1xuT25saW5lS0EgLS0gc2VsZWN0IC0tPiBHUDtcbkh1bWFuIC0tY3JlYXRlLS0-T25saW5lS0FcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)
+<img src=img-readme/simple-current.png width=476>
 
 In the current study, we ommit the Offline KA and focus on the implementation of
 Online KA as the first step. Therefore, the steps related to Offline KA are
@@ -188,6 +188,24 @@ move to the [`fig`](/fig) folder by the following command.
 
 ## Detailed design of the conceptual system
 
+- **GP and Online Knowledge Archive**
+
+  <img src=img-readme/detailed-gp-onka.png width=512>
+
+- **GP and Offline Knowledge Archive**
+
+  <img src=img-readme/detailed-gp-offka.png width=512>
+
+- **Online KA and Offline Knowledge Archive**
+
+  <img src=img-readme/detailed-on-off.png width=512>
+
+- **Offline Knowledge Archive**
+
+  <img src=img-readme/detailed-off.png width=362>
+
 ## Acknowledgements
 
-Our implementation is based on [PyshGP](https://github.com/erp12/pyshgp).
+Our implementation is based on [PyshGP](https://github.com/erp12/pyshgp). We are
+grateful to [@erp12](https://github.com/erp12) for his effort on developing this
+library.
