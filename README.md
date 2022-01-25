@@ -160,12 +160,12 @@ move to the [`fig`](/fig) folder by the following command.
 
 - The success rate of five methods on four benchmark problems in Experiment I
 
-   ![success-rate](/img/main.success.rate.test.png)
+   <img src=/img/main.success.rate.test.png width=512>
 
 - The success rate of three methods on four bemchmark problems and two composite
   problems in Experiment II
 
-  ![success-rate](/img/transfer.success.rate.test.png)
+  <img src=/img/transfer.success.rate.test.png width=512>
 
 ## Detailed design of the conceptual system
 
@@ -194,3 +194,8 @@ parts, namely **GP & Online KA**, **GP & Offline KA**,
 Our implementation is based on [PyshGP](https://github.com/erp12/pyshgp). We are
 grateful to [@erp12](https://github.com/erp12) for his effort on developing this
 library.
+
+The data files of the benchmark problems are from an
+[GitHub repository](https://github.com/thelmuth/program-synthesis-benchmark-datasets).
+We express our thanks to [@thelmuth](https://github.com/thelmuth) for this wonderful
+sharing.
