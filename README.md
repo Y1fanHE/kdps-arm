@@ -38,7 +38,7 @@ description of knowledge.
 
 ### General framework of Knowledge-Driven Program Synthesis (simple version)
 
-<img src=img-readme/simple.png width=712>
+<img src=img-readme/simple.png width=720>
 
 The flowchart above shows a simple version of our framework of the
 *Knowledge-Driven Program Synthesis* (KDPS) system. It works as follows.
@@ -61,7 +61,7 @@ A more detailed design of our conceptual system is in
 
 ### Framework in the current study
 
-<img src=img-readme/simple-current.png width=595>
+<img src=img-readme/simple-current.png width=720>
 
 In the current study, we ommit the Offline KA and focus on the implementation of
 Online KA as the first step. Therefore, the steps related to Offline KA are
@@ -180,19 +180,19 @@ parts, namely **GP & Online KA**, **GP & Offline KA**,
 
 ### GP and Online Knowledge Archive
 
-<img src=img-readme/detailed-gp-onka.png width=640>
+<img src=img-readme/detailed-gp-onka.png width=720>
 
 ### GP and Offline Knowledge Archive
 
-<img src=img-readme/detailed-gp-offka.png width=640>
+<img src=img-readme/detailed-gp-offka.png width=720>
 
 ### Online KA and Offline Knowledge Archive
 
-<img src=img-readme/detailed-on-off.png width=640>
+<img src=img-readme/detailed-on-off.png width=720>
 
 ### Offline Knowledge Archive
 
-<img src=img-readme/detailed-off.png width=452>
+<img src=img-readme/detailed-off.png width=720>
 
 ## Acknowledgements
 
