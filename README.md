@@ -202,5 +202,5 @@ library.
 
 The data files of the benchmark problems are from an
 [GitHub repository](https://github.com/thelmuth/program-synthesis-benchmark-datasets).
-We express our thanks to [@thelmuth](https://github.com/thelmuth) for this wonderful
-sharing.
+We express our thanks to [@thelmuth](https://github.com/thelmuth) for this
+wonderful sharing.
