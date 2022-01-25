@@ -29,7 +29,7 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
 
 ### Preparation
 
-1. Install Python 3 on your computer
+1. Install Python 3 (< 3.10) on your computer
 
 2. Install required libraries
 
