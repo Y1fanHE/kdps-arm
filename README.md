@@ -9,7 +9,7 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
    <summary>Table of Contents</summary>
    <ul>
       <li>
-         <a href="#general-idea-of-the-study">General idea of the study</a>
+         <a href="#general-idea-of-the-knowledge-driven-program-synthesis">General idea of the Knowledge-Driven Program Synthesis</a>
       </li>
       <li>
          <a href="#getting-started">Getting started</a>
