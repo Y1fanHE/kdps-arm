@@ -27,14 +27,16 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
 
 ### Objectives
 
+<img src=img-readme/problem.png width=720>
+
 Genetic programming (GP) searches a program by random initialization, unguided
 variation, and fitness-guided selection. This shows a difference to a human
 programmer. Usually, a human programmer writes code based on his knowledge from
 his previous programming experience.
 
 **This study aims to build a system so that GP could use the knowledge from the
-previous problems it solved in a sequence of problem-solving.** We use
-sub-programs as knowledge in the current study.
+previous problems it solved in a sequence of problem-solving (shown in the above
+figure).** We use sub-programs as knowledge in the current study.
 
 Click [here](/README-knowledge.md) to see a detailed
 description of knowledge.
