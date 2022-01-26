@@ -32,9 +32,9 @@ variation, and fitness-guided selection. This shows a difference to a human
 programmer. Usually, a human programmer writes code based on his knowledge from
 his previous programming experience.
 
-**This study aims to build a system so that GP could use the knowledge from its
-previous problem-solving experience.** We use sub-programs as knowledge in the
-current study.
+**This study aims to build a system so that GP could use the knowledge from the
+previous problems it solved in a sequence of problem-solving.** We use
+sub-programs as knowledge in the current study.
 
 Click [here](/README-knowledge.md) to see a detailed
 description of knowledge.
