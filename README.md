@@ -10,35 +10,15 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
    <ul>
       <li>
          <a href="#general-idea-of-the-study">General idea of the study</a>
-         <ul>
-            <li><a href="#objectives">Objectives</a></li>
-            <li><a href="#general-framework-of-knowledge-driven-program-synthesis-simple-version">General framework of Knowledge-Driven Program Synthesis (simple version)</a></li>
-            <li><a href="#framework-in-the-current-study">Framework in the current study</a></li>
-         </ul>
       </li>
       <li>
          <a href="#getting-started">Getting started</a>
-         <ul>
-            <li><a href="#preparation">Preparation</a></li>
-            <li><a href="#installation">Installation</a></li>
-         </ul>
       </li>
       <li>
          <a href="#usage">Usage</a>
-         <ul>
-            <li><a href="#experiments">Experiments</a></li>
-            <li><a href="#check-the-results">Check the results</a></li>
-            <li><a href="#quick-view-of-the-results">Quick view of the results</a></li>
-         </ul>
       </li>
       <li>
          <a href="#detailed-design-of-the-conceptual-system">Detailed design of the conceptual system</a>
-         <ul>
-            <li><a href="#gp-and-online-knowledge-archive">GP and Online Knowledge Archive</a></li>
-            <li><a href="#gp-and-offline-knowledge-archive">GP and Offline Knowledge Archive</a></li>
-            <li><a href="#online-ka-and-offline-knowledge-archive">Online KA and Offline Knowledge Archive</a></li>
-            <li><a href="#offline-knowledge-archive">Offline Knowledge Archive</a></li>
-         </ul>
       </li>
    </ul>
 </details>
