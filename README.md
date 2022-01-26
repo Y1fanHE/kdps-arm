@@ -25,9 +25,9 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
 
 ## General idea of the Knowledge-Driven Program Synthesis
 
-### Objectives
-
 <img src=img-readme/problem.png width=720>
+
+### Objectives
 
 Genetic programming (GP) searches a program by random initialization, unguided
 variation, and fitness-guided selection. This shows a difference to a human
