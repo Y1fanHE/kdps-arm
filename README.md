@@ -23,7 +23,7 @@ Knowledge in Program Synthesis by PushGP and Adaptive Replacement Mutation"
    </ul>
 </details>
 
-## General idea of the study
+## General idea of the Knowledge-Driven Program Synthesis
 
 ### Objectives
 
