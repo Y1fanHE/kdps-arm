@@ -207,12 +207,7 @@ the command to run these experiments.
 
 - The success rate of five methods on four benchmark problems in Experiment I
 
-   <img src=img/main.success.rate.test.png width=640>
-
-- The success rate of three methods on four bemchmark problems and two composite
-  problems in Experiment II
-
-  <img src=img/transfer.success.rate.test.png width=640>
+<img src=img-readme/result.png width=640>
 
 <p align="right">&uparrow;<a href="#top">back to top</a></p>
 
